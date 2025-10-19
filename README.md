@@ -1,1 +1,1 @@
-# LogiQuiz_Fatec
+# LogiQuiz Fatec
