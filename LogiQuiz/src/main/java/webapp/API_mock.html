@@ -2,130 +2,85 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Teste API Local - LogiQuiz</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 40px; }
-        .questao { border: 1px solid #ccc; padding: 20px; margin: 10px 0; }
-        button { padding: 10px; margin: 5px; }
-        .json { background: #f5f5f5; padding: 10px; margin: 10px 0; }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LogiQuiz - Teste de Lógica Booleana</title>
+    <link rel="stylesheet" href="Style.css">
 </head>
 <body>
-    <h1>Teste da API LogiQuiz (Modo Local)</h1>
-    
-    <div>
-        <button onclick="testarEndpoint('/questoes')">GET /api/questoes</button>
-        <button onclick="testarEndpoint('/questoes/random')">GET /api/questoes/random</button>
-        <button onclick="testarEndpoint('/questoes/dificuldade/FACIL')">GET Questões Fáceis</button>
-        <button onclick="testarEndpoint('/questoes/1')">GET /api/questoes/1</button>
-    </div>
-    
-    <div id="resultado"></div>
+    <div class="quiz-container">
+        <!-- Cabeçalho -->
+        <div class="header">
+            <h1>🧠 LogiQuiz</h1>
+            <div class="subtitle">Teste seus conhecimentos em Lógica Booleana</div>
+        </div>
 
-    <script>
-        // DADOS MOCK - Simula sua API
-        const questaoData = [
-            {
-                id: 1,
-                enunciado: "Qual o resultado da expressão booleana: (True AND False) OR True?",
-                alternativas: ["True", "False", "Indefinido", "Error"],
-                respostaCorreta: "True",
-                fonte: "LogiQuiz",
-                dificuldade: "FÁCIL"
-            },
-            {
-                id: 2,
-                enunciado: "A negação de (A AND B) é equivalente a:",
-                alternativas: ["NOT A AND NOT B", "NOT A OR NOT B", "A OR B", "A AND B"],
-                respostaCorreta: "NOT A OR NOT B",
-                fonte: "LogiQuiz - Lei de De Morgan",
-                dificuldade: "MÉDIO"
-            },
-            {
-                id: 3,
-                enunciado: "Se A = True e B = False, qual o valor de NOT A OR B?",
-                alternativas: ["True", "False", "Depende", "Nenhuma das anteriores"],
-                respostaCorreta: "False",
-                fonte: "LogiQuiz",
-                dificuldade: "FÁCIL"
-            },
-            {
-                id: 4,
-                enunciado: "Qual expressão representa a porta lógica XOR?",
-                alternativas: ["A AND B", "A OR B", "(A AND NOT B) OR (NOT A AND B)", "NOT A AND NOT B"],
-                respostaCorreta: "(A AND NOT B) OR (NOT A AND B)",
-                fonte: "LogiQuiz - Portas Lógicas",
-                dificuldade: "MÉDIO"
-            }
-        ];
+        <!-- Barra de Progresso -->
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress" id="progressBar"></div>
+            </div>
+            <div class="progress-text">
+                <span id="currentQuestion">Questão 1</span>
+                <span id="totalQuestions">de 5</span>
+            </div>
+        </div>
 
-        // Simula os endpoints da API
-        function mockAPI(endpoint) {
-            console.log("📡 Mock API chamada:", endpoint);
-            
-            if (endpoint === '/questoes') {
-                return {
-                    status: 200,
-                    data: questaoData
-                };
-            }
-            else if (endpoint === '/questoes/random') {
-                const randomIndex = Math.floor(Math.random() * questaoData.length);
-                return {
-                    status: 200,
-                    data: questaoData[randomIndex]
-                };
-            }
-            else if (endpoint.startsWith('/questoes/dificuldade/')) {
-                const dificuldade = endpoint.split('/').pop().toUpperCase();
-                const filtered = questaoData.filter(q => q.dificuldade === dificuldade);
-                return {
-                    status: 200,
-                    data: filtered
-                };
-            }
-            else if (endpoint.startsWith('/questoes/')) {
-                const id = parseInt(endpoint.split('/').pop());
-                const questao = questaoData.find(q => q.id === id);
-                if (questao) {
-                    return {
-                        status: 200,
-                        data: questao
-                    };
-                } else {
-                    return {
-                        status: 404,
-                        data: { error: "Questão não encontrada" }
-                    };
-                }
-            }
-            else {
-                return {
-                    status: 404,
-                    data: { error: "Endpoint não encontrado" }
-                };
-            }
-        }
+        <!-- Container da Questão -->
+        <div id="questionScreen">
+            <div class="question-container">
+                <div class="question-header">
+                    <div class="question-number" id="questionNumber">Questão 1</div>
+                    <div class="difficulty facil" id="questionDifficulty">FÁCIL</div>
+                </div>
 
-        // Função para testar os endpoints
-        function testarEndpoint(endpoint) {
-            const resultado = mockAPI(endpoint);
-            const resultadoDiv = document.getElementById('resultado');
-            
-            resultadoDiv.innerHTML = `
-                <div class="questao">
-                    <h3>Endpoint: <code>${endpoint}</code></h3>
-                    <div class="json">
-                        <strong>Status:</strong> ${resultado.status}<br>
-                        <strong>Resposta:</strong>
-                        <pre>${JSON.stringify(resultado.data, null, 2)}</pre>
+                <div class="question-text" id="questionText">
+                    Carregando questão...
+                </div>
+
+                <div class="alternatives-container" id="alternativesContainer">
+                    <!-- Alternativas serão inseridas aqui -->
+                </div>
+
+                <div class="feedback hidden" id="feedback"></div>
+
+                <div class="actions">
+                    <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()" disabled>
+                        Próxima Questão →
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tela de Resultado -->
+        <div id="resultScreen" class="hidden">
+            <div class="result-container">
+                <div class="result-icon">🎉</div>
+                <div class="result-title">Quiz Concluído!</div>
+                <div class="result-score" id="finalScore">0/5</div>
+                <div class="result-text" id="resultMessage">Parabéns pelo esforço!</div>
+                
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-number" id="correctAnswers">0</div>
+                        <div class="stat-label">Corretas</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="totalQuestionsResult">5</div>
+                        <div class="stat-label">Total</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="percentage">0%</div>
+                        <div class="stat-label">Acertos</div>
                     </div>
                 </div>
-            `;
-        }
 
-        // Testa automaticamente ao carregar
-        testarEndpoint('/questoes');
-    </script>
+                <button class="btn btn-success" onclick="restartQuiz()" style="margin-top: 30px;">
+                    🔄 Fazer Novamente
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="Script.js"></script>
 </body>
 </html>
