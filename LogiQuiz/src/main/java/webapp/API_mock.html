@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LogiQuiz - Teste de Lógica Booleana</title>
+    <title>LogiQuiz - Questões Reais de Lógica</title>
     <link rel="stylesheet" href="Style.css">
 </head>
 <body>
@@ -11,7 +11,28 @@
         <!-- Cabeçalho -->
         <div class="header">
             <h1>🧠 LogiQuiz</h1>
-            <div class="subtitle">Teste seus conhecimentos em Lógica Booleana</div>
+            <div class="subtitle">Questões reais de lógica da Khan Academy</div>
+            <div class="connection-status" id="connectionStatus">
+                <span class="status-offline">🔴 Modo Offline</span>
+                <span class="status-online hidden">🟢 Conectado</span>
+            </div>
+        </div>
+
+        <!-- Modo de Operação -->
+        <div class="mode-selector">
+            <button class="btn-mode active" onclick="setMode('online')" id="onlineBtn">
+                🌐 Buscar Questões Online
+            </button>
+            <button class="btn-mode" onclick="setMode('offline')" id="offlineBtn">
+                📱 Usar Questões Locais
+            </button>
+        </div>
+
+        <!-- Loading -->
+        <div id="loadingScreen" class="loading-container hidden">
+            <div class="loading-spinner"></div>
+            <div class="loading-text">Buscando questões da Khan Academy...</div>
+            <div class="loading-details" id="loadingDetails"></div>
         </div>
 
         <!-- Barra de Progresso -->
@@ -21,12 +42,13 @@
             </div>
             <div class="progress-text">
                 <span id="currentQuestion">Questão 1</span>
-                <span id="totalQuestions">de 5</span>
+                <span id="totalQuestions">de 0</span>
+                <span id="questionsSource">Fonte: Local</span>
             </div>
         </div>
 
         <!-- Container da Questão -->
-        <div id="questionScreen">
+        <div id="questionScreen" class="hidden">
             <div class="question-container">
                 <div class="question-header">
                     <div class="question-number" id="questionNumber">Questão 1</div>
@@ -34,7 +56,11 @@
                 </div>
 
                 <div class="question-text" id="questionText">
-                    Carregando questão...
+                    Selecione um modo para começar...
+                </div>
+
+                <div class="question-image" id="questionImageContainer">
+                    <img id="questionImage" src="" alt="" class="hidden">
                 </div>
 
                 <div class="alternatives-container" id="alternativesContainer">
@@ -44,6 +70,9 @@
                 <div class="feedback hidden" id="feedback"></div>
 
                 <div class="actions">
+                    <button class="btn btn-secondary" onclick="skipQuestion()" id="skipBtn">
+                        ⏭️ Pular Questão
+                    </button>
                     <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()" disabled>
                         Próxima Questão →
                     </button>
@@ -56,7 +85,7 @@
             <div class="result-container">
                 <div class="result-icon">🎉</div>
                 <div class="result-title">Quiz Concluído!</div>
-                <div class="result-score" id="finalScore">0/5</div>
+                <div class="result-score" id="finalScore">0/0</div>
                 <div class="result-text" id="resultMessage">Parabéns pelo esforço!</div>
                 
                 <div class="stats">
@@ -65,7 +94,7 @@
                         <div class="stat-label">Corretas</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-number" id="totalQuestionsResult">5</div>
+                        <div class="stat-number" id="totalQuestionsResult">0</div>
                         <div class="stat-label">Total</div>
                     </div>
                     <div class="stat-item">
@@ -74,13 +103,61 @@
                     </div>
                 </div>
 
-                <button class="btn btn-success" onclick="restartQuiz()" style="margin-top: 30px;">
-                    🔄 Fazer Novamente
-                </button>
+                <div class="result-actions">
+                    <button class="btn btn-success" onclick="restartQuiz()">
+                        🔄 Fazer Novamente
+                    </button>
+                    <button class="btn btn-primary" onclick="loadNewQuestions()">
+                        🌐 Buscar Novas Questões
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tela Inicial -->
+        <div id="startScreen">
+            <div class="start-container">
+                <div class="start-icon">🧠</div>
+                <h2>Bem-vindo ao LogiQuiz!</h2>
+                <p>Teste seus conhecimentos em lógica booleana com questões reais da Khan Academy</p>
+                
+                <div class="start-actions">
+                    <button class="btn btn-success btn-large" onclick="startOnlineQuiz()">
+                        🌐 Começar com Questões Online
+                    </button>
+                    <button class="btn btn-primary btn-large" onclick="startOfflineQuiz()">
+                        📱 Começar com Questões Locais
+                    </button>
+                </div>
+
+                <div class="features">
+                    <div class="feature">
+                        <span>🌐</span>
+                        <div>
+                            <strong>Questões Reais</strong>
+                            <p>Busca automática da Khan Academy</p>
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <span>🎯</span>
+                        <div>
+                            <strong>Diferentes Níveis</strong>
+                            <p>Questões fáceis, médias e difíceis</p>
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <span>📊</span>
+                        <div>
+                            <strong>Estatísticas Detalhadas</strong>
+                            <p>Acompanhe seu progresso</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
+    <script src="scraper.js"></script>
     <script src="Script.js"></script>
 </body>
 </html>
