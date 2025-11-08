@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questões de Lógica Booleana</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Lógica Booleana</h1>
+            <p>Teste seus conhecimentos em álgebra booleana</p>
+        </header>
+
+        <main>
+            <div id="loading" class="loading">Carregando questões...</div>
+            
+            <div id="question-container" class="question-container hidden">
+                <div class="question-header">
+                    <span id="question-number">Questão 1</span>
+                    <button id="skip-btn" class="btn-secondary">Pular Questão</button>
+                </div>
+                
+                <div class="question-content">
+                    <h2 id="question-text"></h2>
+                    <div id="alternatives" class="alternatives"></div>
+                </div>
+
+                <div id="feedback" class="feedback hidden"></div>
+                
+                <div class="navigation">
+                    <button id="prev-btn" class="btn">Anterior</button>
+                    <button id="next-btn" class="btn" disabled>Próxima</button>
+                </div>
+            </div>
+
+            <!-- Estatísticas na parte inferior -->
+            <div id="stats" class="stats">
+                <div class="stat-item">
+                    <div class="stat-label">Respondidas</div>
+                    <div class="stat-number" id="answered-count">0</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Corretas</div>
+                    <div class="stat-number" id="correct-count">0</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Total</div>
+                    <div class="stat-number" id="total-count">0</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Porcentagem</div>
+                    <div class="stat-number" id="percentage">0%</div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

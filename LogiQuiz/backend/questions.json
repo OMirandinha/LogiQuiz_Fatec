@@ -1,0 +1,184 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "enunciado": "Qual o resultado da expressão: V ∧ V ∧ V ∧ V ∧ F?",
+      "alternativas": [
+        "Verdadeiro",
+        "Falso",
+        "Indefinido",
+        "Nenhuma das anteriores"
+      ],
+      "respostaCorreta": 1,
+      "explicacao": "A operação AND (∧) retorna verdadeiro apenas quando TODOS os operandos são verdadeiros. Como há um Falso (F) na expressão, o resultado é Falso."
+    },
+    {
+      "id": 2,
+      "enunciado": "Qual o resultado da expressão: (V ∨ V) ∧ F?",
+      "alternativas": [
+        "Verdadeiro",
+        "Falso",
+        "Verdadeiro ou Falso",
+        "Indefinido"
+      ],
+      "respostaCorreta": 1,
+      "explicacao": "Primeiro resolvemos (V ∨ V) = V, depois V ∧ F = F. O AND com Falso sempre resulta em Falso."
+    },
+    {
+      "id": 3,
+      "enunciado": "Qual o resultado da expressão: ¬(V ∨ V)?",
+      "alternativas": [
+        "Verdadeiro",
+        "Falso",
+        "Indefinido",
+        "Nenhuma das anteriores"
+      ],
+      "respostaCorreta": 1,
+      "explicacao": "Primeiro resolvemos (V ∨ V) = V, depois aplicamos a negação: ¬V = F."
+    },
+    {
+      "id": 4,
+      "enunciado": "Dizer que 'Pedro não é pedreiro ou Paulo é paulista' é logicamente equivalente a:",
+      "alternativas": [
+        "Se Pedro é pedreiro, então Paulo é paulista",
+        "Se Paulo é paulista, então Pedro é pedreiro",
+        "Se Pedro não é pedreiro, então Paulo é paulista",
+        "Se Pedro é pedreiro, então Paulo não é paulista"
+      ],
+      "respostaCorreta": 0,
+      "explicacao": "A equivalência lógica ¬p ∨ q ≡ p → q é uma das leis da implicação material."
+    },
+    {
+      "id": 5,
+      "enunciado": "Seja p: 'está frio' e q: 'está chovendo'. Qual expressão representa 'Não está frio e não está chovendo'?",
+      "alternativas": [
+        "¬p ∧ ¬q",
+        "p ∧ q",
+        "¬p ∨ ¬q",
+        "p ∨ q"
+      ],
+      "respostaCorreta": 0,
+      "explicacao": "A negação de 'está frio' é ¬p e a negação de 'está chovendo' é ¬q. O 'e' é representado por ∧."
+    },
+    {
+      "id": 6,
+      "enunciado": "Qual o valor-verdade de '8 é par ou 6 é ímpar'?",
+      "alternativas": [
+        "Verdadeiro",
+        "Falso",
+        "Paradoxo",
+        "Indefinido"
+      ],
+      "respostaCorreta": 0,
+      "explicacao": "8 é par (V), 6 é ímpar (F). Na disjunção (OU), basta um ser verdadeiro para o resultado ser verdadeiro: V ∨ F = V."
+    },
+    {
+      "id": 7,
+      "enunciado": "Qual o valor-verdade de '8 é par e 6 é ímpar'?",
+      "alternativas": [
+        "Verdadeiro",
+        "Falso",
+        "Verdadeiro e Falso",
+        "Indefinido"
+      ],
+      "respostaCorreta": 1,
+      "explicacao": "8 é par (V), 6 é ímpar (F). Na conjunção (E), ambos devem ser verdadeiros: V ∧ F = F."
+    },
+    {
+      "id": 8,
+      "enunciado": "Dizer que 'não é verdade que Pedro é pobre e Alberto é alto' é equivalente a:",
+      "alternativas": [
+        "Pedro não é pobre ou Alberto não é alto",
+        "Pedro não é pobre e Alberto não é alto",
+        "Pedro é pobre ou Alberto não é alto",
+        "Se Pedro não é pobre, então Alberto é alto"
+      ],
+      "respostaCorreta": 0,
+      "explicacao": "Pela Lei de De Morgan: ¬(p ∧ q) ≡ ¬p ∨ ¬q"
+    },
+    {
+      "id": 9,
+      "enunciado": "A proposição (p ∧ q) → r tem valor lógico falso. Quais os valores de p, q e r?",
+      "alternativas": [
+        "V - V - F",
+        "V - F - V",
+        "F - V - V",
+        "F - F - V"
+      ],
+      "respostaCorreta": 0,
+      "explicacao": "Para uma implicação ser falsa, o antecedente deve ser verdadeiro e o consequente falso. Logo, p ∧ q = V (portanto p = V e q = V) e r = F."
+    },
+    {
+      "id": 10,
+      "enunciado": "Se x e y são números reais tais que x/y < 0, podemos afirmar:",
+      "alternativas": [
+        "(x > 0 e y < 0) ou (x < 0 e y > 0)",
+        "x < 0 ou y < 0",
+        "x < 0 e y < 0",
+        "x > 0 ou y < 0"
+      ],
+      "respostaCorreta": 0,
+      "explicacao": "Para uma fração ser negativa, os sinais do numerador e denominador devem ser diferentes: um positivo e outro negativo."
+    },
+    {
+      "id": 11,
+      "enunciado": "Qual das seguintes é uma tautologia?",
+      "alternativas": [
+        "x → x",
+        "x ∧ ¬x",
+        "x ∨ y",
+        "x → y"
+      ],
+      "respostaCorreta": 0,
+      "explicacao": "x → x é sempre verdadeiro, independente do valor de x, portanto é uma tautologia."
+    },
+    {
+      "id": 12,
+      "enunciado": "Qual das seguintes é uma contradição?",
+      "alternativas": [
+        "x ∧ ¬x",
+        "x ∨ ¬x",
+        "x → x",
+        "x ∨ y"
+      ],
+      "respostaCorreta": 0,
+      "explicacao": "x ∧ ¬x é sempre falso, pois x não pode ser verdadeiro e falso ao mesmo tempo."
+    },
+    {
+      "id": 13,
+      "enunciado": "O conjunto A = {x ∈ R; (x-2)(x-1) = 0} pode ser representado como:",
+      "alternativas": [
+        "A = {x ∈ R; x = 2 ou x = 1}",
+        "A = {x ∈ R; x = 2 e x = 1}",
+        "A = {x ∈ R; x ≠ 2 e x ≠ 1}",
+        "A = {x ∈ R; x = 2 então x = 1}"
+      ],
+      "respostaCorreta": 0,
+      "explicacao": "O produto (x-2)(x-1) = 0 quando x-2 = 0 OU x-1 = 0, ou seja, quando x = 2 OU x = 1."
+    },
+    {
+      "id": 14,
+      "enunciado": "A expressão (x ∧ y) ∨ (x ∧ ¬y) é logicamente equivalente a:",
+      "alternativas": [
+        "x",
+        "y",
+        "x ∨ y",
+        "x ∧ y"
+      ],
+      "respostaCorreta": 0,
+      "explicacao": "Pela propriedade distributiva e identidade: (x ∧ y) ∨ (x ∧ ¬y) ≡ x ∧ (y ∨ ¬y) ≡ x ∧ V ≡ x"
+    },
+    {
+      "id": 15,
+      "enunciado": "O 'ou-exclusivo' (XOR) entre x e y é equivalente a:",
+      "alternativas": [
+        "(x ∧ ¬y) ∨ (¬x ∧ y)",
+        "x ∧ y",
+        "x ∨ y",
+        "¬(x ∨ y)"
+      ],
+      "respostaCorreta": 0,
+      "explicacao": "O ou-exclusivo é verdadeiro quando x e y têm valores diferentes: x verdadeiro E y falso, OU x falso E y verdadeiro."
+    }
+  ]
+}
