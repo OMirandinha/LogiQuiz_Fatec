@@ -46,9 +46,13 @@
                         <span id="question-number">Questão 1 de 5</span>
                         <span id="dificuldade-indicator" class="dificuldade-indicator">Fácil</span>
                     </div>
-                    <button id="skip-btn" class="btn-secondary">Pular Questão</button>
                 </div>
                 
+                <!-- Aviso de Modo de Revisão -->
+                <div id="review-notice" class="review-notice hidden">
+                    📝 Modo de Revisão - Você está revisando suas respostas
+                </div>
+
                 <div class="question-content">
                     <h2 id="question-text"></h2>
                     <div id="alternatives" class="alternatives"></div>
@@ -59,6 +63,7 @@
                 <div class="navigation">
                     <button id="prev-btn" class="btn">Anterior</button>
                     <button id="next-btn" class="btn">Próxima</button>
+                    <button id="skip-btn" class="btn-secondary">Pular Questão</button>
                 </div>
 
                 <!-- Barra de Progresso -->
@@ -89,6 +94,28 @@
                         <div class="result-value" id="final-percentage">0%</div>
                     </div>
                 </div>
+                
+                <!-- Seção para estatísticas de tempo -->
+                <div class="time-stats">
+                    <h3>Estatísticas de Tempo</h3>
+                    <div class="time-stats-grid">
+                        <div class="time-stat-item">
+                            <div class="time-stat-icon">⏱️</div>
+                            <div class="time-stat-info">
+                                <div class="time-stat-label">Tempo Total</div>
+                                <div class="time-stat-value" id="total-time">00:00</div>
+                            </div>
+                        </div>
+                        <div class="time-stat-item">
+                            <div class="time-stat-icon">⚡</div>
+                            <div class="time-stat-info">
+                                <div class="time-stat-label">Tempo Médio por Questão</div>
+                                <div class="time-stat-value" id="average-time">00:00</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="results-actions">
                     <button id="restart-btn" class="btn btn-primary">Fazer Novo Quiz</button>
                     <button id="review-btn" class="btn btn-secondary">Revisar Respostas</button>
