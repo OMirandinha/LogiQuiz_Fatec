@@ -34,7 +34,60 @@ header p {
     opacity: 0.9;
 }
 
-.question-container {
+/* Configurações do Quiz */
+.config-container {
+    background: white;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.config-container h2 {
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.config-form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.form-group small {
+    display: block;
+    margin-top: 5px;
+    color: #666;
+    font-size: 0.85rem;
+}
+
+/* Container do Quiz */
+.quiz-container {
     background: white;
     border-radius: 15px;
     padding: 30px;
@@ -42,7 +95,7 @@ header p {
     margin-bottom: 30px;
 }
 
-.question-header {
+.quiz-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -51,16 +104,46 @@ header p {
     border-bottom: 2px solid #f0f0f0;
 }
 
+.quiz-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
 #question-number {
     font-size: 1.2rem;
     font-weight: bold;
     color: #667eea;
 }
 
+.dificuldade-indicator {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.dificuldade-facil {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.dificuldade-medio {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.dificuldade-dificil {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
 .question-content h2 {
     margin-bottom: 25px;
     color: #333;
     font-size: 1.3rem;
+    line-height: 1.5;
 }
 
 .alternatives {
@@ -90,27 +173,23 @@ header p {
     color: white;
 }
 
-/* Estilos para respostas corretas - sem hover */
 .alternative.correct {
     border-color: #28a745;
     background-color: #d4edda;
     color: #155724;
 }
 
-/* Estilos para respostas incorretas - sem hover */
 .alternative.incorrect {
     border-color: #dc3545;
     background-color: #f8d7da;
     color: #721c24;
 }
 
-/* Alternativas desabilitadas - removendo completamente o hover */
 .alternative.disabled {
     cursor: not-allowed;
     opacity: 0.8;
 }
 
-/* Remove qualquer efeito hover para alternativas desabilitadas e respondidas */
 .alternative.disabled:hover,
 .alternative.correct:hover,
 .alternative.incorrect:hover {
@@ -141,8 +220,95 @@ header p {
     display: flex;
     justify-content: space-between;
     gap: 15px;
+    margin-bottom: 25px;
 }
 
+/* Barra de Progresso */
+.progress-container {
+    margin-top: 20px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+.progress-text {
+    text-align: center;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Resultados */
+.results-container {
+    background: white;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.results-container h2 {
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.results-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.result-item {
+    padding: 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    background: white;
+}
+
+.result-item.highlight {
+    border-color: #667eea;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.result-item.highlight .result-label,
+.result-item.highlight .result-value {
+    color: white;
+}
+
+.result-label {
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    color: #666;
+    font-weight: 600;
+}
+
+.result-value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.results-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+/* Botões */
 .btn {
     padding: 12px 25px;
     border: none;
@@ -150,31 +316,31 @@ header p {
     cursor: pointer;
     font-size: 1rem;
     transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn-primary {
     background-color: #667eea;
     color: white;
 }
 
-.btn:hover:not(:disabled) {
+.btn-primary:hover:not(:disabled) {
     background-color: #5a6fd8;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover:not(:disabled) {
+    background-color: #545b62;
 }
 
 .btn:disabled {
     background-color: #cccccc;
-    cursor: not-allowed;
-    opacity: 0.6;
-}
-
-.btn-secondary {
-    background-color: #ffc107;
-    color: #212529;
-}
-
-.btn-secondary:hover:not(:disabled) {
-    background-color: #e0a800;
-}
-
-.btn-secondary:disabled {
-    background-color: #ffda6a;
     cursor: not-allowed;
     opacity: 0.6;
 }
@@ -190,76 +356,38 @@ header p {
     display: none;
 }
 
-/* Estatísticas - Fundo branco como solicitado */
-.stats {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
-    margin-top: 20px;
-    padding: 20px;
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.stat-item {
-    text-align: center;
-    padding: 15px;
-    background: white;
-    border: 2px solid #667eea;
-    border-radius: 10px;
-    color: #333;
-}
-
-.stat-label {
-    font-size: 0.9rem;
-    opacity: 0.8;
-    margin-bottom: 5px;
-    color: #667eea;
-    font-weight: 600;
-}
-
-.stat-number {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #333;
-}
-
 /* Responsividade */
 @media (max-width: 768px) {
     .container {
         padding: 10px;
     }
     
-    .question-container {
+    .quiz-container,
+    .config-container,
+    .results-container {
         padding: 20px;
     }
     
-    .question-header {
+    .quiz-header {
         flex-direction: column;
         gap: 15px;
+    }
+    
+    .quiz-info {
+        flex-direction: column;
+        gap: 10px;
     }
     
     .navigation {
         flex-direction: column;
     }
     
-    .stats {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 480px) {
-    .stats {
+    .results-stats {
         grid-template-columns: 1fr;
     }
     
-    .stat-item {
-        padding: 10px;
-    }
-    
-    .stat-number {
-        font-size: 1.5rem;
+    .results-actions {
+        flex-direction: column;
     }
     
     header h1 {
@@ -267,20 +395,13 @@ header p {
     }
 }
 
-.question-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    padding-bottom: 15px;
-    border-bottom: 2px solid #f0f0f0;
-    position: relative;
-}
-
-/* Indicador visual para questões que foram puladas mas não respondidas */
-.skipped-indicator {
-    font-size: 0.8rem;
-    color: #ffc107;
-    font-style: italic;
-    margin-left: 10px;
+@media (max-width: 480px) {
+    .result-value {
+        font-size: 1.5rem;
+    }
+    
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
 }

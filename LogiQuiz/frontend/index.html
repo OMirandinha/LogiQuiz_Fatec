@@ -3,22 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Questões de Lógica Booleana</title>
+    <title>Quiz de Lógica Booleana</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Lógica Booleana</h1>
+            <h1>Quiz de Lógica Booleana</h1>
             <p>Teste seus conhecimentos em álgebra booleana</p>
         </header>
 
         <main>
-            <div id="loading" class="loading">Carregando questões...</div>
+            <!-- Tela de Configuração do Quiz -->
+            <div id="config-container" class="config-container">
+                <h2>Configuração do Quiz</h2>
+                <div class="config-form">
+                    <div class="form-group">
+                        <label for="dificuldade">Nível de Dificuldade:</label>
+                        <select id="dificuldade" class="form-control">
+                            <option value="todas">Todas as Dificuldades</option>
+                            <option value="facil">Fácil</option>
+                            <option value="medio">Médio</option>
+                            <option value="dificil">Difícil</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="quantidade">Quantidade de Questões:</label>
+                        <input type="number" id="quantidade" class="form-control" min="1" max="20" value="5">
+                        <small>Máximo: 20 questões</small>
+                    </div>
+                    <button id="start-btn" class="btn btn-primary">Iniciar Quiz</button>
+                </div>
+            </div>
+
+            <!-- Tela de Loading -->
+            <div id="loading" class="loading hidden">Carregando questões...</div>
             
-            <div id="question-container" class="question-container hidden">
-                <div class="question-header">
-                    <span id="question-number">Questão 1</span>
+            <!-- Tela do Quiz -->
+            <div id="quiz-container" class="quiz-container hidden">
+                <div class="quiz-header">
+                    <div class="quiz-info">
+                        <span id="question-number">Questão 1 de 5</span>
+                        <span id="dificuldade-indicator" class="dificuldade-indicator">Fácil</span>
+                    </div>
                     <button id="skip-btn" class="btn-secondary">Pular Questão</button>
                 </div>
                 
@@ -31,27 +58,40 @@
                 
                 <div class="navigation">
                     <button id="prev-btn" class="btn">Anterior</button>
-                    <button id="next-btn" class="btn" disabled>Próxima</button>
+                    <button id="next-btn" class="btn">Próxima</button>
+                </div>
+
+                <!-- Barra de Progresso -->
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div id="progress-fill" class="progress-fill"></div>
+                    </div>
+                    <div class="progress-text">
+                        <span id="progress-text">0/0 questões respondidas</span>
+                    </div>
                 </div>
             </div>
 
-            <!-- Estatísticas na parte inferior -->
-            <div id="stats" class="stats">
-                <div class="stat-item">
-                    <div class="stat-label">Respondidas</div>
-                    <div class="stat-number" id="answered-count">0</div>
+            <!-- Tela de Resultados -->
+            <div id="results-container" class="results-container hidden">
+                <h2>Resultado do Quiz</h2>
+                <div class="results-stats">
+                    <div class="result-item">
+                        <div class="result-label">Questões Respondidas</div>
+                        <div class="result-value" id="total-answered">0</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-label">Respostas Corretas</div>
+                        <div class="result-value" id="total-correct">0</div>
+                    </div>
+                    <div class="result-item highlight">
+                        <div class="result-label">Porcentagem de Acerto</div>
+                        <div class="result-value" id="final-percentage">0%</div>
+                    </div>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-label">Corretas</div>
-                    <div class="stat-number" id="correct-count">0</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-label">Total</div>
-                    <div class="stat-number" id="total-count">0</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-label">Porcentagem</div>
-                    <div class="stat-number" id="percentage">0%</div>
+                <div class="results-actions">
+                    <button id="restart-btn" class="btn btn-primary">Fazer Novo Quiz</button>
+                    <button id="review-btn" class="btn btn-secondary">Revisar Respostas</button>
                 </div>
             </div>
         </main>
