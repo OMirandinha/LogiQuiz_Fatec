@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz de Lógica Booleana</title>
+    <title>LogiQuiz - Teste de Lógica Booleana</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Quiz de Lógica Booleana</h1>
+            <h1>LogiQuiz</h1>
             <p>Teste seus conhecimentos em álgebra booleana</p>
         </header>
 
@@ -37,7 +37,10 @@
             </div>
 
             <!-- Tela de Loading -->
-            <div id="loading" class="loading hidden">Carregando questões...</div>
+            <div id="loading" class="loading hidden">
+                <div class="loading-spinner"></div>
+                <p>Carregando questões...</p>
+            </div>
             
             <!-- Tela do Quiz -->
             <div id="quiz-container" class="quiz-container hidden">
@@ -61,9 +64,9 @@
                 <div id="feedback" class="feedback hidden"></div>
                 
                 <div class="navigation">
-                    <button id="prev-btn" class="btn">Anterior</button>
-                    <button id="next-btn" class="btn">Próxima</button>
-                    <button id="skip-btn" class="btn-secondary">Pular Questão</button>
+                    <button id="prev-btn" class="btn btn-secondary">Anterior</button>
+                    <button id="next-btn" class="btn btn-secondary">Próxima</button>
+                    <button id="skip-btn" class="btn btn-outline">Pular Questão</button>
                 </div>
 
                 <!-- Barra de Progresso -->
@@ -124,6 +127,6 @@
         </main>
     </div>
 
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
 </body>
 </html>
