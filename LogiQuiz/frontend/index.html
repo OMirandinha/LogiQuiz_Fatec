@@ -5,402 +5,490 @@
 }
 
 :root {
-    --primary-color: #2563eb;
-    --primary-dark: #1d4ed8;
-    --primary-light: #3b82f6;
-    --secondary-color: #0f172a;
-    --secondary-light: #1e293b;
-    --secondary-dark: #020617;
-    --text-color: #f8fafc;
-    --text-secondary: #94a3b8;
-    --success-color: #10b981;
-    --error-color: #ef4444;
-    --warning-color: #f59e0b;
-    --surface-color: #1e293b;
-    --border-color: #334155;
+    --primary-color: #2c5530;
+    --primary-dark: #1e3a24;
+    --primary-light: #4a7c59;
+    --secondary-color: #1a1f2e;
+    --secondary-light: #2d3447;
+    --secondary-dark: #0d1117;
+    --accent-color: #8b4513;
+    --accent-light: #a0522d;
+    --text-color: #2c3e50;
+    --text-light: #5d6d7e;
+    --text-white: #ffffff;
+    --success-color: #27ae60;
+    --error-color: #c0392b;
+    --warning-color: #f39c12;
+    --surface-color: #ffffff;
+    --border-color: #d6dbdb;
+    --shadow-color: rgba(0, 0, 0, 0.08);
 }
 
 body {
-    font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
-    line-height: 1.6;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    line-height: 1.7;
     color: var(--text-color);
-    background: linear-gradient(135deg, var(--secondary-dark) 0%, var(--secondary-color) 100%);
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
     min-height: 100vh;
-    font-weight: 300;
-}
-
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-header {
-    text-align: center;
-    margin-bottom: 40px;
-    padding: 30px;
-    background: rgba(15, 23, 42, 0.8);
-    border-radius: 20px;
-    border: 1px solid var(--border-color);
-    backdrop-filter: blur(10px);
-}
-
-header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 8px;
-    color: var(--text-color);
-    font-weight: 300;
-    letter-spacing: -0.5px;
-}
-
-header p {
-    font-size: 1.1rem;
-    color: var(--text-secondary);
-    font-weight: 300;
-}
-
-/* Configurações do Quiz */
-.config-container {
-    background: var(--surface-color);
-    border-radius: 20px;
-    padding: 40px;
-    border: 1px solid var(--border-color);
-    text-align: center;
-}
-
-.config-container h2 {
-    margin-bottom: 30px;
-    color: var(--text-color);
-    font-size: 1.6rem;
     font-weight: 400;
 }
 
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+/* Header Acadêmico */
+header {
+    text-align: center;
+    margin-bottom: 50px;
+    padding: 40px 30px;
+    background: var(--surface-color);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 20px var(--shadow-color);
+    position: relative;
+    border-top: 5px solid var(--primary-color);
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: var(--accent-color);
+}
+
+header h1 {
+    font-size: 2.4rem;
+    margin-bottom: 12px;
+    color: var(--primary-dark);
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    font-family: 'Georgia', serif;
+}
+
+header p {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    font-weight: 400;
+    font-style: italic;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Container de Configuração */
+.config-container {
+    background: var(--surface-color);
+    border-radius: 12px;
+    padding: 45px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 20px var(--shadow-color);
+    margin-bottom: 40px;
+}
+
+.config-container h2 {
+    margin-bottom: 35px;
+    color: var(--primary-dark);
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-align: center;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 15px;
+}
+
 .config-form {
-    max-width: 400px;
+    max-width: 500px;
     margin: 0 auto;
 }
 
 .form-group {
-    margin-bottom: 25px;
+    margin-bottom: 28px;
     text-align: left;
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 8px;
-    font-weight: 400;
+    margin-bottom: 10px;
+    font-weight: 600;
     color: var(--text-color);
-    font-size: 0.95rem;
+    font-size: 1rem;
+    font-family: 'Georgia', serif;
 }
 
 .form-control {
     width: 100%;
-    padding: 14px 16px;
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
+    padding: 14px 18px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
     font-size: 1rem;
     transition: all 0.3s ease;
-    background: var(--secondary-dark);
+    background: var(--surface-color);
     color: var(--text-color);
-    font-weight: 300;
+    font-weight: 400;
+    font-family: 'Georgia', serif;
 }
 
 .form-control:focus {
     outline: none;
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    box-shadow: 0 0 0 3px rgba(44, 85, 48, 0.1);
 }
 
 .form-group small {
     display: block;
-    margin-top: 6px;
-    color: var(--text-secondary);
-    font-size: 0.8rem;
-    font-weight: 300;
+    margin-top: 8px;
+    color: var(--text-light);
+    font-size: 0.85rem;
+    font-weight: 400;
+    font-style: italic;
 }
 
 /* Container do Quiz */
 .quiz-container {
     background: var(--surface-color);
-    border-radius: 20px;
-    padding: 30px;
-    margin-bottom: 30px;
+    border-radius: 12px;
+    padding: 35px;
     border: 1px solid var(--border-color);
+    box-shadow: 0 4px 20px var(--shadow-color);
+    margin-bottom: 40px;
 }
 
 .quiz-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 30px;
+    margin-bottom: 35px;
     padding-bottom: 20px;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 2px solid var(--border-color);
 }
 
 .quiz-info {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 25px;
 }
 
 #question-number {
     font-size: 1.1rem;
-    font-weight: 400;
-    color: var(--text-color);
+    font-weight: 600;
+    color: var(--primary-dark);
+    background: #f8f9fa;
+    padding: 8px 16px;
+    border-radius: 6px;
+    border-left: 4px solid var(--primary-color);
 }
 
 .dificuldade-indicator {
-    padding: 6px 16px;
+    padding: 8px 18px;
     border-radius: 20px;
-    font-size: 0.75rem;
-    font-weight: 500;
+    font-size: 0.8rem;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    font-family: 'Arial', sans-serif;
 }
 
 .dificuldade-facil {
-    background-color: rgba(16, 185, 129, 0.1);
+    background-color: rgba(39, 174, 96, 0.1);
     color: var(--success-color);
-    border: 1px solid var(--success-color);
+    border: 2px solid var(--success-color);
 }
 
 .dificuldade-medio {
-    background-color: rgba(245, 158, 11, 0.1);
+    background-color: rgba(243, 156, 18, 0.1);
     color: var(--warning-color);
-    border: 1px solid var(--warning-color);
+    border: 2px solid var(--warning-color);
 }
 
 .dificuldade-dificil {
-    background-color: rgba(239, 68, 68, 0.1);
+    background-color: rgba(192, 57, 43, 0.1);
     color: var(--error-color);
-    border: 1px solid var(--error-color);
+    border: 2px solid var(--error-color);
 }
 
 .question-content h2 {
-    margin-bottom: 30px;
+    margin-bottom: 35px;
     color: var(--text-color);
-    font-size: 1.25rem;
-    line-height: 1.6;
-    padding: 20px;
-    background: rgba(15, 23, 42, 0.5);
-    border-radius: 16px;
-    font-weight: 400;
-    border-left: 3px solid var(--primary-color);
+    font-size: 1.3rem;
+    line-height: 1.8;
+    padding: 25px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    font-weight: 500;
+    border-left: 5px solid var(--accent-color);
+    font-family: 'Georgia', serif;
 }
 
 .alternatives {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    margin-bottom: 30px;
+    gap: 15px;
+    margin-bottom: 35px;
 }
 
 .alternative {
-    padding: 18px 24px;
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
+    padding: 20px 25px;
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
     cursor: pointer;
     transition: all 0.3s ease;
-    background: var(--secondary-dark);
+    background: var(--surface-color);
     color: var(--text-color);
     font-size: 1rem;
-    font-weight: 300;
+    font-weight: 400;
+    font-family: 'Georgia', serif;
+    text-align: left;
+    position: relative;
+}
+
+.alternative::before {
+    content: counter(alternative, upper-alpha);
+    counter-increment: alternative;
+    position: absolute;
+    left: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.9rem;
+    font-family: 'Arial', sans-serif;
+}
+
+.alternatives {
+    counter-reset: alternative;
 }
 
 .alternative:hover:not(.disabled):not(.correct):not(.incorrect) {
     border-color: var(--primary-color);
-    background-color: rgba(37, 99, 235, 0.05);
-    transform: translateY(-1px);
+    background-color: #f8f9fa;
+    transform: translateX(5px);
 }
 
 .alternative.selected {
     border-color: var(--primary-color);
-    background-color: rgba(37, 99, 235, 0.1);
-    color: var(--text-color);
-    font-weight: 400;
+    background-color: rgba(44, 85, 48, 0.05);
+    color: var(--primary-dark);
+    font-weight: 600;
 }
 
 .alternative.correct {
     border-color: var(--success-color);
-    background-color: rgba(16, 185, 129, 0.1);
+    background-color: rgba(39, 174, 96, 0.05);
     color: var(--success-color);
 }
 
 .alternative.incorrect {
     border-color: var(--error-color);
-    background-color: rgba(239, 68, 68, 0.1);
+    background-color: rgba(192, 57, 43, 0.05);
     color: var(--error-color);
 }
 
 .alternative.disabled {
     cursor: not-allowed;
-    opacity: 0.6;
+    opacity: 0.7;
 }
 
 .feedback {
-    padding: 20px;
-    border-radius: 12px;
-    margin-bottom: 25px;
-    font-size: 1rem;
-    font-weight: 300;
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    font-size: 1.05rem;
+    font-weight: 400;
+    line-height: 1.6;
+    font-family: 'Georgia', serif;
 }
 
 .feedback.correct {
-    background-color: rgba(16, 185, 129, 0.1);
-    border: 1px solid var(--success-color);
+    background-color: rgba(39, 174, 96, 0.05);
+    border: 2px solid var(--success-color);
     color: var(--success-color);
 }
 
 .feedback.incorrect {
-    background-color: rgba(239, 68, 68, 0.1);
-    border: 1px solid var(--error-color);
+    background-color: rgba(192, 57, 43, 0.05);
+    border: 2px solid var(--error-color);
     color: var(--error-color);
 }
 
 .navigation {
     display: flex;
     justify-content: space-between;
-    gap: 15px;
-    margin-bottom: 25px;
+    gap: 20px;
+    margin-bottom: 30px;
 }
 
 /* Barra de Progresso */
 .progress-container {
-    margin-top: 25px;
+    margin-top: 30px;
 }
 
 .progress-bar {
     width: 100%;
-    height: 6px;
+    height: 8px;
     background-color: var(--border-color);
-    border-radius: 3px;
+    border-radius: 4px;
     overflow: hidden;
-    margin-bottom: 12px;
+    margin-bottom: 15px;
 }
 
 .progress-fill {
     height: 100%;
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
-    border-radius: 3px;
+    border-radius: 4px;
     transition: width 0.4s ease;
 }
 
 .progress-text {
     text-align: center;
-    color: var(--text-secondary);
-    font-size: 0.85rem;
-    font-weight: 300;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    font-weight: 400;
+    font-style: italic;
 }
 
-/* Resultados */
+/* Resultados - Estilo Acadêmico */
 .results-container {
     background: var(--surface-color);
-    border-radius: 20px;
-    padding: 40px;
+    border-radius: 12px;
+    padding: 45px;
     border: 1px solid var(--border-color);
+    box-shadow: 0 4px 20px var(--shadow-color);
     text-align: center;
 }
 
 .results-container h2 {
-    margin-bottom: 30px;
-    color: var(--text-color);
-    font-size: 1.8rem;
-    font-weight: 400;
+    margin-bottom: 35px;
+    color: var(--primary-dark);
+    font-size: 2rem;
+    font-weight: 700;
+    border-bottom: 3px solid var(--accent-color);
+    padding-bottom: 20px;
+    font-family: 'Georgia', serif;
 }
 
 .results-stats {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    margin-bottom: 30px;
+    gap: 25px;
+    margin-bottom: 40px;
 }
 
 .result-item {
-    padding: 25px;
-    border: 1px solid var(--border-color);
-    border-radius: 16px;
-    background: var(--secondary-dark);
+    padding: 30px 25px;
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    background: var(--surface-color);
     transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.result-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--primary-color);
 }
 
 .result-item:hover {
-    transform: translateY(-2px);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px var(--shadow-color);
     border-color: var(--primary-color);
 }
 
 .result-item.highlight {
     border-color: var(--primary-color);
-    background: rgba(37, 99, 235, 0.1);
-    color: var(--text-color);
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    box-shadow: 0 8px 30px rgba(44, 85, 48, 0.15);
 }
 
 .result-item.highlight .result-label,
 .result-item.highlight .result-value {
-    color: var(--text-color);
-    font-weight: 400;
+    color: var(--primary-dark);
 }
 
 .result-label {
-    font-size: 0.85rem;
-    margin-bottom: 8px;
-    color: var(--text-secondary);
-    font-weight: 400;
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+    color: var(--text-light);
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
+    font-family: 'Arial', sans-serif;
 }
 
 .result-value {
-    font-size: 2rem;
-    font-weight: 300;
-    color: var(--text-color);
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+    font-family: 'Georgia', serif;
 }
 
-/* Estatísticas de tempo na tela de resultados */
+/* Estatísticas de Tempo */
 .time-stats {
-    margin: 30px 0;
-    padding: 25px;
-    background: var(--secondary-dark);
-    border-radius: 16px;
-    border: 1px solid var(--border-color);
+    margin: 40px 0;
+    padding: 30px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    border: 2px solid var(--border-color);
 }
 
 .time-stats h3 {
     text-align: center;
-    margin-bottom: 20px;
-    color: var(--text-color);
-    font-size: 1.3rem;
-    font-weight: 400;
+    margin-bottom: 25px;
+    color: var(--primary-dark);
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-family: 'Georgia', serif;
 }
 
 .time-stats-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    max-width: 500px;
+    gap: 25px;
+    max-width: 550px;
     margin: 0 auto;
 }
 
 .time-stat-item {
     display: flex;
     align-items: center;
-    gap: 15px;
-    padding: 20px;
+    gap: 20px;
+    padding: 25px;
     background: var(--surface-color);
-    border-radius: 12px;
+    border-radius: 10px;
     transition: all 0.3s ease;
-    border: 1px solid var(--border-color);
+    border: 2px solid var(--border-color);
+    box-shadow: 0 2px 10px var(--shadow-color);
 }
 
 .time-stat-item:hover {
-    transform: translateY(-2px);
+    transform: translateY(-3px);
     border-color: var(--primary-color);
+    box-shadow: 0 5px 20px var(--shadow-color);
 }
 
 .time-stat-icon {
-    font-size: 2rem;
-    width: 50px;
+    font-size: 2.2rem;
+    width: 60px;
     text-align: center;
-    opacity: 0.8;
+    color: var(--primary-color);
 }
 
 .time-stat-info {
@@ -408,40 +496,45 @@ header p {
 }
 
 .time-stat-label {
-    font-size: 0.8rem;
-    color: var(--text-secondary);
-    margin-bottom: 5px;
-    font-weight: 400;
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-bottom: 8px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-family: 'Arial', sans-serif;
 }
 
 .time-stat-value {
-    font-size: 1.4rem;
-    font-weight: 300;
-    color: var(--text-color);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+    font-family: 'Georgia', serif;
 }
 
 .results-actions {
     display: flex;
-    gap: 15px;
+    gap: 20px;
     justify-content: center;
-    margin-top: 30px;
+    margin-top: 35px;
 }
 
-/* Botões */
+/* Botões Acadêmicos */
 .btn {
-    padding: 14px 28px;
+    padding: 15px 32px;
     border: none;
-    border-radius: 12px;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 0.95rem;
+    font-size: 1rem;
     transition: all 0.3s ease;
     text-decoration: none;
     display: inline-block;
     text-align: center;
-    font-weight: 400;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    border: 1px solid transparent;
+    font-family: 'Arial', sans-serif;
+    border: 2px solid transparent;
 }
 
 .btn-primary {
@@ -452,7 +545,8 @@ header p {
 
 .btn-primary:hover:not(:disabled) {
     background: var(--primary-dark);
-    transform: translateY(-1px);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(44, 85, 48, 0.3);
 }
 
 .btn-secondary {
@@ -462,48 +556,51 @@ header p {
 }
 
 .btn-secondary:hover:not(:disabled) {
-    background: rgba(255, 255, 255, 0.05);
-    transform: translateY(-1px);
+    background: var(--primary-color);
+    color: white;
     border-color: var(--primary-color);
+    transform: translateY(-2px);
 }
 
 .btn-outline {
     background: transparent;
     color: var(--primary-color);
-    border: 1px solid var(--primary-color);
+    border: 2px solid var(--primary-color);
 }
 
 .btn-outline:hover:not(:disabled) {
     background: var(--primary-color);
     color: white;
-    transform: translateY(-1px);
+    transform: translateY(-2px);
 }
 
 .btn:disabled {
-    background: #374151;
-    color: #6b7280;
+    background: #bdc3c7;
+    color: #7f8c8d;
     cursor: not-allowed;
-    border-color: #374151;
+    border-color: #bdc3c7;
     transform: none !important;
+    box-shadow: none !important;
 }
 
 /* Loading */
 .loading {
     text-align: center;
-    padding: 60px;
-    font-size: 1.1rem;
+    padding: 70px;
+    font-size: 1.2rem;
     color: var(--text-color);
-    font-weight: 300;
+    font-weight: 400;
+    font-family: 'Georgia', serif;
 }
 
 .loading-spinner {
-    width: 40px;
-    height: 40px;
-    border: 2px solid var(--border-color);
-    border-top: 2px solid var(--primary-color);
+    width: 45px;
+    height: 45px;
+    border: 3px solid var(--border-color);
+    border-top: 3px solid var(--primary-color);
     border-radius: 50%;
     animation: spin 1s linear infinite;
-    margin: 0 auto 20px;
+    margin: 0 auto 25px;
 }
 
 @keyframes spin {
@@ -517,21 +614,22 @@ header p {
 
 /* Aviso de Modo de Revisão */
 .review-notice {
-    background-color: rgba(37, 99, 235, 0.1);
-    border: 1px solid var(--primary-color);
-    color: var(--primary-color);
-    padding: 16px 20px;
-    border-radius: 12px;
-    margin-bottom: 20px;
+    background-color: rgba(139, 69, 19, 0.1);
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+    padding: 20px 25px;
+    border-radius: 10px;
+    margin-bottom: 25px;
     text-align: center;
-    font-size: 0.95rem;
-    font-weight: 400;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: 'Georgia', serif;
 }
 
 /* Responsividade */
 @media (max-width: 768px) {
     .container {
-        padding: 15px;
+        padding: 20px;
     }
     
     .quiz-container,
@@ -542,12 +640,12 @@ header p {
     
     .quiz-header {
         flex-direction: column;
-        gap: 15px;
+        gap: 20px;
     }
     
     .quiz-info {
         flex-direction: column;
-        gap: 10px;
+        gap: 15px;
     }
     
     .navigation {
@@ -571,20 +669,20 @@ header p {
     }
     
     .btn {
-        padding: 12px 20px;
-        font-size: 0.9rem;
+        padding: 14px 25px;
+        font-size: 0.95rem;
     }
 }
 
 @media (max-width: 480px) {
     .result-value {
-        font-size: 1.6rem;
+        font-size: 1.8rem;
     }
     
     .time-stat-item {
         flex-direction: column;
         text-align: center;
-        gap: 10px;
+        gap: 15px;
     }
     
     .time-stat-icon {
@@ -592,20 +690,25 @@ header p {
     }
     
     .time-stat-value {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
     }
     
     header h1 {
-        font-size: 1.6rem;
+        font-size: 1.7rem;
     }
     
     header p {
-        font-size: 0.95rem;
+        font-size: 1rem;
     }
     
-    .config-container,
-    .quiz-container,
-    .results-container {
-        padding: 20px;
+    .alternative {
+        padding: 18px 20px 18px 35px;
+    }
+    
+    .alternative::before {
+        left: -12px;
+        width: 25px;
+        height: 25px;
+        font-size: 0.8rem;
     }
 }
