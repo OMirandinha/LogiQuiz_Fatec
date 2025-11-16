@@ -751,4 +751,5 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Erro ao inicializar quiz:', error);
         alert('Erro ao inicializar o quiz. Verifique o console para mais detalhes.');
     }
-})
+});
+
