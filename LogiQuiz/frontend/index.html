@@ -1,611 +1,132 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-:root {
-    --primary-color: #2563eb;
-    --primary-dark: #1d4ed8;
-    --primary-light: #3b82f6;
-    --secondary-color: #0f172a;
-    --secondary-light: #1e293b;
-    --secondary-dark: #020617;
-    --text-color: #f8fafc;
-    --text-secondary: #94a3b8;
-    --success-color: #10b981;
-    --error-color: #ef4444;
-    --warning-color: #f59e0b;
-    --surface-color: #1e293b;
-    --border-color: #334155;
-}
-
-body {
-    font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
-    line-height: 1.6;
-    color: var(--text-color);
-    background: linear-gradient(135deg, var(--secondary-dark) 0%, var(--secondary-color) 100%);
-    min-height: 100vh;
-    font-weight: 300;
-}
-
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-header {
-    text-align: center;
-    margin-bottom: 40px;
-    padding: 30px;
-    background: rgba(15, 23, 42, 0.8);
-    border-radius: 20px;
-    border: 1px solid var(--border-color);
-    backdrop-filter: blur(10px);
-}
-
-header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 8px;
-    color: var(--text-color);
-    font-weight: 300;
-    letter-spacing: -0.5px;
-}
-
-header p {
-    font-size: 1.1rem;
-    color: var(--text-secondary);
-    font-weight: 300;
-}
-
-/* Configurações do Quiz */
-.config-container {
-    background: var(--surface-color);
-    border-radius: 20px;
-    padding: 40px;
-    border: 1px solid var(--border-color);
-    text-align: center;
-}
-
-.config-container h2 {
-    margin-bottom: 30px;
-    color: var(--text-color);
-    font-size: 1.6rem;
-    font-weight: 400;
-}
-
-.config-form {
-    max-width: 400px;
-    margin: 0 auto;
-}
-
-.form-group {
-    margin-bottom: 25px;
-    text-align: left;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 400;
-    color: var(--text-color);
-    font-size: 0.95rem;
-}
-
-.form-control {
-    width: 100%;
-    padding: 14px 16px;
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    background: var(--secondary-dark);
-    color: var(--text-color);
-    font-weight: 300;
-}
-
-.form-control:focus {
-    outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-}
-
-.form-group small {
-    display: block;
-    margin-top: 6px;
-    color: var(--text-secondary);
-    font-size: 0.8rem;
-    font-weight: 300;
-}
-
-/* Container do Quiz */
-.quiz-container {
-    background: var(--surface-color);
-    border-radius: 20px;
-    padding: 30px;
-    margin-bottom: 30px;
-    border: 1px solid var(--border-color);
-}
-
-.quiz-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 30px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.quiz-info {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-#question-number {
-    font-size: 1.1rem;
-    font-weight: 400;
-    color: var(--text-color);
-}
-
-.dificuldade-indicator {
-    padding: 6px 16px;
-    border-radius: 20px;
-    font-size: 0.75rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.dificuldade-facil {
-    background-color: rgba(16, 185, 129, 0.1);
-    color: var(--success-color);
-    border: 1px solid var(--success-color);
-}
-
-.dificuldade-medio {
-    background-color: rgba(245, 158, 11, 0.1);
-    color: var(--warning-color);
-    border: 1px solid var(--warning-color);
-}
-
-.dificuldade-dificil {
-    background-color: rgba(239, 68, 68, 0.1);
-    color: var(--error-color);
-    border: 1px solid var(--error-color);
-}
-
-.question-content h2 {
-    margin-bottom: 30px;
-    color: var(--text-color);
-    font-size: 1.25rem;
-    line-height: 1.6;
-    padding: 20px;
-    background: rgba(15, 23, 42, 0.5);
-    border-radius: 16px;
-    font-weight: 400;
-    border-left: 3px solid var(--primary-color);
-}
-
-.alternatives {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-bottom: 30px;
-}
-
-.alternative {
-    padding: 18px 24px;
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    background: var(--secondary-dark);
-    color: var(--text-color);
-    font-size: 1rem;
-    font-weight: 300;
-}
-
-.alternative:hover:not(.disabled):not(.correct):not(.incorrect) {
-    border-color: var(--primary-color);
-    background-color: rgba(37, 99, 235, 0.05);
-    transform: translateY(-1px);
-}
-
-.alternative.selected {
-    border-color: var(--primary-color);
-    background-color: rgba(37, 99, 235, 0.1);
-    color: var(--text-color);
-    font-weight: 400;
-}
-
-.alternative.correct {
-    border-color: var(--success-color);
-    background-color: rgba(16, 185, 129, 0.1);
-    color: var(--success-color);
-}
-
-.alternative.incorrect {
-    border-color: var(--error-color);
-    background-color: rgba(239, 68, 68, 0.1);
-    color: var(--error-color);
-}
-
-.alternative.disabled {
-    cursor: not-allowed;
-    opacity: 0.6;
-}
-
-.feedback {
-    padding: 20px;
-    border-radius: 12px;
-    margin-bottom: 25px;
-    font-size: 1rem;
-    font-weight: 300;
-}
-
-.feedback.correct {
-    background-color: rgba(16, 185, 129, 0.1);
-    border: 1px solid var(--success-color);
-    color: var(--success-color);
-}
-
-.feedback.incorrect {
-    background-color: rgba(239, 68, 68, 0.1);
-    border: 1px solid var(--error-color);
-    color: var(--error-color);
-}
-
-.navigation {
-    display: flex;
-    justify-content: space-between;
-    gap: 15px;
-    margin-bottom: 25px;
-}
-
-/* Barra de Progresso */
-.progress-container {
-    margin-top: 25px;
-}
-
-.progress-bar {
-    width: 100%;
-    height: 6px;
-    background-color: var(--border-color);
-    border-radius: 3px;
-    overflow: hidden;
-    margin-bottom: 12px;
-}
-
-.progress-fill {
-    height: 100%;
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
-    border-radius: 3px;
-    transition: width 0.4s ease;
-}
-
-.progress-text {
-    text-align: center;
-    color: var(--text-secondary);
-    font-size: 0.85rem;
-    font-weight: 300;
-}
-
-/* Resultados */
-.results-container {
-    background: var(--surface-color);
-    border-radius: 20px;
-    padding: 40px;
-    border: 1px solid var(--border-color);
-    text-align: center;
-}
-
-.results-container h2 {
-    margin-bottom: 30px;
-    color: var(--text-color);
-    font-size: 1.8rem;
-    font-weight: 400;
-}
-
-.results-stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    margin-bottom: 30px;
-}
-
-.result-item {
-    padding: 25px;
-    border: 1px solid var(--border-color);
-    border-radius: 16px;
-    background: var(--secondary-dark);
-    transition: all 0.3s ease;
-}
-
-.result-item:hover {
-    transform: translateY(-2px);
-    border-color: var(--primary-color);
-}
-
-.result-item.highlight {
-    border-color: var(--primary-color);
-    background: rgba(37, 99, 235, 0.1);
-    color: var(--text-color);
-}
-
-.result-item.highlight .result-label,
-.result-item.highlight .result-value {
-    color: var(--text-color);
-    font-weight: 400;
-}
-
-.result-label {
-    font-size: 0.85rem;
-    margin-bottom: 8px;
-    color: var(--text-secondary);
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.result-value {
-    font-size: 2rem;
-    font-weight: 300;
-    color: var(--text-color);
-}
-
-/* Estatísticas de tempo na tela de resultados */
-.time-stats {
-    margin: 30px 0;
-    padding: 25px;
-    background: var(--secondary-dark);
-    border-radius: 16px;
-    border: 1px solid var(--border-color);
-}
-
-.time-stats h3 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: var(--text-color);
-    font-size: 1.3rem;
-    font-weight: 400;
-}
-
-.time-stats-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-.time-stat-item {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    padding: 20px;
-    background: var(--surface-color);
-    border-radius: 12px;
-    transition: all 0.3s ease;
-    border: 1px solid var(--border-color);
-}
-
-.time-stat-item:hover {
-    transform: translateY(-2px);
-    border-color: var(--primary-color);
-}
-
-.time-stat-icon {
-    font-size: 2rem;
-    width: 50px;
-    text-align: center;
-    opacity: 0.8;
-}
-
-.time-stat-info {
-    flex: 1;
-}
-
-.time-stat-label {
-    font-size: 0.8rem;
-    color: var(--text-secondary);
-    margin-bottom: 5px;
-    font-weight: 400;
-}
-
-.time-stat-value {
-    font-size: 1.4rem;
-    font-weight: 300;
-    color: var(--text-color);
-}
-
-.results-actions {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    margin-top: 30px;
-}
-
-/* Botões */
-.btn {
-    padding: 14px 28px;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    font-size: 0.95rem;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    display: inline-block;
-    text-align: center;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    border: 1px solid transparent;
-}
-
-.btn-primary {
-    background: var(--primary-color);
-    color: white;
-    border-color: var(--primary-color);
-}
-
-.btn-primary:hover:not(:disabled) {
-    background: var(--primary-dark);
-    transform: translateY(-1px);
-}
-
-.btn-secondary {
-    background: transparent;
-    color: var(--text-color);
-    border-color: var(--border-color);
-}
-
-.btn-secondary:hover:not(:disabled) {
-    background: rgba(255, 255, 255, 0.05);
-    transform: translateY(-1px);
-    border-color: var(--primary-color);
-}
-
-.btn-outline {
-    background: transparent;
-    color: var(--primary-color);
-    border: 1px solid var(--primary-color);
-}
-
-.btn-outline:hover:not(:disabled) {
-    background: var(--primary-color);
-    color: white;
-    transform: translateY(-1px);
-}
-
-.btn:disabled {
-    background: #374151;
-    color: #6b7280;
-    cursor: not-allowed;
-    border-color: #374151;
-    transform: none !important;
-}
-
-/* Loading */
-.loading {
-    text-align: center;
-    padding: 60px;
-    font-size: 1.1rem;
-    color: var(--text-color);
-    font-weight: 300;
-}
-
-.loading-spinner {
-    width: 40px;
-    height: 40px;
-    border: 2px solid var(--border-color);
-    border-top: 2px solid var(--primary-color);
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-    margin: 0 auto 20px;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-.hidden {
-    display: none;
-}
-
-/* Aviso de Modo de Revisão */
-.review-notice {
-    background-color: rgba(37, 99, 235, 0.1);
-    border: 1px solid var(--primary-color);
-    color: var(--primary-color);
-    padding: 16px 20px;
-    border-radius: 12px;
-    margin-bottom: 20px;
-    text-align: center;
-    font-size: 0.95rem;
-    font-weight: 400;
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-    .container {
-        padding: 15px;
-    }
-    
-    .quiz-container,
-    .config-container,
-    .results-container {
-        padding: 25px;
-    }
-    
-    .quiz-header {
-        flex-direction: column;
-        gap: 15px;
-    }
-    
-    .quiz-info {
-        flex-direction: column;
-        gap: 10px;
-    }
-    
-    .navigation {
-        flex-direction: column;
-    }
-    
-    .results-stats {
-        grid-template-columns: 1fr;
-    }
-    
-    .results-actions {
-        flex-direction: column;
-    }
-    
-    .time-stats-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    header h1 {
-        font-size: 2rem;
-    }
-    
-    .btn {
-        padding: 12px 20px;
-        font-size: 0.9rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .result-value {
-        font-size: 1.6rem;
-    }
-    
-    .time-stat-item {
-        flex-direction: column;
-        text-align: center;
-        gap: 10px;
-    }
-    
-    .time-stat-icon {
-        font-size: 1.8rem;
-    }
-    
-    .time-stat-value {
-        font-size: 1.2rem;
-    }
-    
-    header h1 {
-        font-size: 1.6rem;
-    }
-    
-    header p {
-        font-size: 0.95rem;
-    }
-    
-    .config-container,
-    .quiz-container,
-    .results-container {
-        padding: 20px;
-    }
-}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LogiQuiz - Teste de Lógica Booleana</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>LogiQuiz</h1>
+            <p>Teste seus conhecimentos em álgebra booleana</p>
+        </header>
+
+        <main>
+            <!-- Tela de Configuração do Quiz -->
+            <div id="config-container" class="config-container">
+                <h2>Configuração do Quiz</h2>
+                <div class="config-form">
+                    <div class="form-group">
+                        <label for="dificuldade">Nível de Dificuldade:</label>
+                        <select id="dificuldade" class="form-control">
+                            <option value="todas">Todas as Dificuldades</option>
+                            <option value="facil">Fácil</option>
+                            <option value="medio">Médio</option>
+                            <option value="dificil">Difícil</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="quantidade">Quantidade de Questões:</label>
+                        <input type="number" id="quantidade" class="form-control" min="1" max="20" value="5">
+                        <small>Máximo: 20 questões</small>
+                    </div>
+                    <button id="start-btn" class="btn btn-primary">Iniciar Quiz</button>
+                </div>
+            </div>
+
+            <!-- Tela de Loading -->
+            <div id="loading" class="loading hidden">
+                <div class="loading-spinner"></div>
+                <p>Carregando questões...</p>
+            </div>
+            
+            <!-- Tela do Quiz -->
+            <div id="quiz-container" class="quiz-container hidden">
+                <div class="quiz-header">
+                    <div class="quiz-info">
+                        <span id="question-number">Questão 1 de 5</span>
+                        <span id="dificuldade-indicator" class="dificuldade-indicator">Fácil</span>
+                    </div>
+                </div>
+                
+                <!-- Aviso de Modo de Revisão -->
+                <div id="review-notice" class="review-notice hidden">
+                    📝 Modo de Revisão - Você está revisando suas respostas
+                </div>
+
+                <div class="question-content">
+                    <h2 id="question-text"></h2>
+                    <div id="alternatives" class="alternatives"></div>
+                </div>
+
+                <div id="feedback" class="feedback hidden"></div>
+                
+                <div class="navigation">
+                    <button id="prev-btn" class="btn btn-secondary">Anterior</button>
+                    <button id="next-btn" class="btn btn-secondary">Próxima</button>
+                    <button id="skip-btn" class="btn btn-outline">Pular Questão</button>
+                </div>
+
+                <!-- Barra de Progresso -->
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div id="progress-fill" class="progress-fill"></div>
+                    </div>
+                    <div class="progress-text">
+                        <span id="progress-text">0/0 questões respondidas</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tela de Resultados -->
+            <div id="results-container" class="results-container hidden">
+                <h2>Resultado do Quiz</h2>
+                <div class="results-stats">
+                    <div class="result-item">
+                        <div class="result-label">Questões Respondidas</div>
+                        <div class="result-value" id="total-answered">0</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-label">Respostas Corretas</div>
+                        <div class="result-value" id="total-correct">0</div>
+                    </div>
+                    <div class="result-item highlight">
+                        <div class="result-label">Porcentagem de Acerto</div>
+                        <div class="result-value" id="final-percentage">0%</div>
+                    </div>
+                </div>
+                
+                <!-- Seção para estatísticas de tempo -->
+                <div class="time-stats">
+                    <h3>Estatísticas de Tempo</h3>
+                    <div class="time-stats-grid">
+                        <div class="time-stat-item">
+                            <div class="time-stat-icon">⏱️</div>
+                            <div class="time-stat-info">
+                                <div class="time-stat-label">Tempo Total</div>
+                                <div class="time-stat-value" id="total-time">00:00</div>
+                            </div>
+                        </div>
+                        <div class="time-stat-item">
+                            <div class="time-stat-icon">⚡</div>
+                            <div class="time-stat-info">
+                                <div class="time-stat-label">Tempo Médio por Questão</div>
+                                <div class="time-stat-value" id="average-time">00:00</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="results-actions">
+                    <button id="restart-btn" class="btn btn-primary">Fazer Novo Quiz</button>
+                    <button id="review-btn" class="btn btn-secondary">Revisar Respostas</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
