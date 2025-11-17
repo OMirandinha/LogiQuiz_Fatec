@@ -488,11 +488,16 @@ header p {
 }
 
 .btn:disabled {
-    background: #555;
-    cursor: not-allowed;
     opacity: 0.6;
-    transform: none !important;
-    box-shadow: none !important;
+    cursor: not-allowed;
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.btn-primary:disabled {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    opacity: 0.6;
 }
 
 /* Loading */

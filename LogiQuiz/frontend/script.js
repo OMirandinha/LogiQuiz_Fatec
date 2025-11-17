@@ -280,7 +280,7 @@ class BooleanLogicQuiz {
      * Exibe uma questão específica no container
      * @param {number} index - Índice da questão a ser exibida
      */
-   showQuestion(index) {
+  showQuestion(index) {
     try {
         if (index < 0 || index >= this.currentQuestions.length) {
             console.error('Índice de questão inválido:', index);
@@ -291,6 +291,11 @@ class BooleanLogicQuiz {
         this.selectedAlternative = null;
         this.feedbackElement.classList.add('hidden');
         
+        // NOVO: Desabilita o botão "Próxima" ao carregar uma nova questão (apenas no modo normal)
+        if (!this.isReviewMode) {
+            this.nextButton.disabled = true;
+        }
+        
         // Registra o tempo de início da questão atual (para estatísticas)
         this.questionStartTimes.set(index, Date.now());
         
@@ -300,7 +305,7 @@ class BooleanLogicQuiz {
         this.questionNumberElement.textContent = `Questão ${index + 1} de ${this.currentQuestions.length}`;
         this.questionTextElement.textContent = question.enunciado;
         
-        // ATUALIZAÇÃO: Exibe a fonte da questão
+        // Exibe a fonte da questão
         this.updateQuestionSource(question.fonte);
         
         // Atualiza o indicador de dificuldade
@@ -313,7 +318,7 @@ class BooleanLogicQuiz {
         
     } catch (error) {
         console.error('Erro ao mostrar questão:', error);
-    }
+        }
     }
 
     /**
@@ -418,65 +423,68 @@ class BooleanLogicQuiz {
      * @param {number} index - Índice da alternativa selecionada
      * @param {HTMLElement} element - Elemento HTML da alternativa
      */
-    selectAlternative(index, element) {
-        try {
-            // Remove seleção anterior
-            document.querySelectorAll('.alternative').forEach(alt => {
-                alt.classList.remove('selected');
-            });
-            
-            // Marca a alternativa atual como selecionada
-            element.classList.add('selected');
-            this.selectedAlternative = index;
-            
-            const question = this.currentQuestions[this.currentQuestionIndex];
-            const isCorrect = index === question.respostaCorreta;
-            
-            // Calcula o tempo gasto na questão atual (para estatísticas)
-            const questionStartTime = this.questionStartTimes.get(this.currentQuestionIndex);
-            let questionTime = 0;
-            
-            if (questionStartTime) {
-                questionTime = Date.now() - questionStartTime;
-                console.log(`Tempo gasto na questão ${this.currentQuestionIndex + 1}: ${questionTime}ms`);
-            }
-            
-            // Armazena a resposta do usuário com o tempo gasto
-            this.answeredQuestions.set(this.currentQuestionIndex, {
-                selected: index,
-                isCorrect: isCorrect,
-                timeSpent: questionTime,
-                alreadyCounted: false
-            });
-            
-            // Atualiza o contador de respostas corretas
-            if (isCorrect) {
-                if (!this.answeredQuestions.get(this.currentQuestionIndex).alreadyCounted) {
-                    this.correctAnswers++;
-                    this.answeredQuestions.get(this.currentQuestionIndex).alreadyCounted = true;
-                }
-            }
-            
-            // Desabilita todas as alternativas após a seleção
-            document.querySelectorAll('.alternative').forEach(alt => {
-                alt.classList.add('disabled');
-                // Remove eventos de clique
-                const newAlt = alt.cloneNode(true);
-                alt.parentNode.replaceChild(newAlt, alt);
-            });
-            
-            // Mostra feedback e atualiza a interface
-            this.checkAnswer(isCorrect, question.explicacao);
-            this.updateProgress();
-            this.updateNavigationButtons();
-
-            // Verifica se é a última questão respondida (apenas se não estiver no modo de revisão)
-            if (!this.isReviewMode && this.answeredQuestions.size === this.currentQuestions.length) {
-                setTimeout(() => this.showResults(), 1500);
-            }
-        } catch (error) {
-            console.error('Erro ao selecionar alternativa:', error);
+   selectAlternative(index, element) {
+    try {
+        // Remove seleção anterior
+        document.querySelectorAll('.alternative').forEach(alt => {
+            alt.classList.remove('selected');
+        });
+        
+        // Marca a alternativa atual como selecionada
+        element.classList.add('selected');
+        this.selectedAlternative = index;
+        
+        const question = this.currentQuestions[this.currentQuestionIndex];
+        const isCorrect = index === question.respostaCorreta;
+        
+        // Calcula o tempo gasto na questão atual (para estatísticas)
+        const questionStartTime = this.questionStartTimes.get(this.currentQuestionIndex);
+        let questionTime = 0;
+        
+        if (questionStartTime) {
+            questionTime = Date.now() - questionStartTime;
+            console.log(`Tempo gasto na questão ${this.currentQuestionIndex + 1}: ${questionTime}ms`);
         }
+        
+        // Armazena a resposta do usuário com o tempo gasto
+        this.answeredQuestions.set(this.currentQuestionIndex, {
+            selected: index,
+            isCorrect: isCorrect,
+            timeSpent: questionTime,
+            alreadyCounted: false
+        });
+        
+        // Atualiza o contador de respostas corretas
+        if (isCorrect) {
+            if (!this.answeredQuestions.get(this.currentQuestionIndex).alreadyCounted) {
+                this.correctAnswers++;
+                this.answeredQuestions.get(this.currentQuestionIndex).alreadyCounted = true;
+            }
+        }
+        
+        // NOVO: Habilita o botão "Próxima" quando uma alternativa é selecionada
+        this.nextButton.disabled = false;
+        
+        // Desabilita todas as alternativas após a seleção
+        document.querySelectorAll('.alternative').forEach(alt => {
+            alt.classList.add('disabled');
+            // Remove eventos de clique
+            const newAlt = alt.cloneNode(true);
+            alt.parentNode.replaceChild(newAlt, alt);
+        });
+        
+        // Mostra feedback e atualiza a interface
+        this.checkAnswer(isCorrect, question.explicacao);
+        this.updateProgress();
+        this.updateNavigationButtons();
+
+        // Verifica se é a última questão respondida (apenas se não estiver no modo de revisão)
+        if (!this.isReviewMode && this.answeredQuestions.size === this.currentQuestions.length) {
+            setTimeout(() => this.showResults(), 1500);
+        }
+    } catch (error) {
+        console.error('Erro ao selecionar alternativa:', error);
+    }
     }
 
     /**
@@ -589,37 +597,40 @@ class BooleanLogicQuiz {
     /**
      * Atualiza o estado dos botões de navegação
      */
-    updateNavigationButtons() {
-        try {
-            const isAnswered = this.answeredQuestions.has(this.currentQuestionIndex);
-            const isLastQuestion = this.currentQuestionIndex === this.currentQuestions.length - 1;
-            
-            this.prevButton.disabled = this.currentQuestionIndex === 0;
-            
-            // No modo de revisão, o botão "Próxima" sempre está habilitado
-            if (this.isReviewMode) {
-                this.nextButton.disabled = false;
-                // Na última questão do modo de revisão, muda o texto do botão
-                if (isLastQuestion) {
-                    this.nextButton.textContent = 'Voltar aos Resultados';
-                } else {
-                    this.nextButton.textContent = 'Próxima';
-                }
+   /**
+ * Atualiza o estado dos botões de navegação
+ */
+updateNavigationButtons() {
+    try {
+        const isAnswered = this.answeredQuestions.has(this.currentQuestionIndex);
+        const isLastQuestion = this.currentQuestionIndex === this.currentQuestions.length - 1;
+        
+        this.prevButton.disabled = this.currentQuestionIndex === 0;
+        
+        // NOVO: No modo normal, o botão "Próxima" só fica habilitado se a questão foi respondida
+        if (this.isReviewMode) {
+            // Modo de revisão: botão sempre habilitado
+            this.nextButton.disabled = false;
+            if (isLastQuestion) {
+                this.nextButton.textContent = 'Voltar aos Resultados';
             } else {
-                // No modo normal, comportamento original
-                this.nextButton.disabled = isLastQuestion;
                 this.nextButton.textContent = 'Próxima';
             }
-            
-            // No modo de revisão, esconde o botão "Pular"
-            if (this.isReviewMode) {
-                this.skipButton.style.display = 'none';
-            } else {
-                this.skipButton.style.display = 'block';
-                this.skipButton.disabled = isAnswered || isLastQuestion;
-            }
-        } catch (error) {
-            console.error('Erro ao atualizar navegação:', error);
+        } else {
+            // Modo normal: botão habilitado apenas se a questão foi respondida OU é a última questão
+            this.nextButton.disabled = !isAnswered && !isLastQuestion;
+            this.nextButton.textContent = 'Próxima';
+        }
+        
+        // No modo de revisão, esconde o botão "Pular"
+        if (this.isReviewMode) {
+            this.skipButton.style.display = 'none';
+        } else {
+            this.skipButton.style.display = 'block';
+            this.skipButton.disabled = isAnswered || isLastQuestion;
+        }
+    } catch (error) {
+        console.error('Erro ao atualizar navegação:', error);
         }
     }
 
