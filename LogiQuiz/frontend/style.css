@@ -5,28 +5,25 @@
 }
 
 :root {
-    --primary-color: #2563eb;
-    --primary-dark: #1d4ed8;
-    --primary-light: #3b82f6;
-    --secondary-color: #0f172a;
-    --secondary-light: #1e293b;
-    --secondary-dark: #020617;
-    --text-color: #f8fafc;
-    --text-secondary: #94a3b8;
-    --success-color: #10b981;
-    --error-color: #ef4444;
-    --warning-color: #f59e0b;
-    --surface-color: #1e293b;
-    --border-color: #334155;
+    --primary-color: #ff0000;
+    --primary-dark: #cc0000;
+    --primary-light: #ff3333;
+    --secondary-color: #1a1a1a;
+    --secondary-light: #2a2a2a;
+    --secondary-dark: #000000;
+    --text-color: #ffffff;
+    --text-secondary: #cccccc;
+    --success-color: #00aa00;
+    --error-color: #ff4444;
+    --warning-color: #ffaa00;
 }
 
 body {
-    font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: var(--text-color);
     background: linear-gradient(135deg, var(--secondary-dark) 0%, var(--secondary-color) 100%);
     min-height: 100vh;
-    font-weight: 300;
 }
 
 .container {
@@ -38,41 +35,40 @@ body {
 header {
     text-align: center;
     margin-bottom: 40px;
-    padding: 30px;
-    background: rgba(15, 23, 42, 0.8);
-    border-radius: 20px;
-    border: 1px solid var(--border-color);
-    backdrop-filter: blur(10px);
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 15px;
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 8px 32px rgba(255, 0, 0, 0.3);
 }
 
 header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 8px;
-    color: var(--text-color);
-    font-weight: 300;
-    letter-spacing: -0.5px;
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+    font-weight: 800;
 }
 
 header p {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     color: var(--text-secondary);
-    font-weight: 300;
 }
 
 /* Configurações do Quiz */
 .config-container {
-    background: var(--surface-color);
-    border-radius: 20px;
+    background: var(--secondary-color);
+    border-radius: 15px;
     padding: 40px;
-    border: 1px solid var(--border-color);
+    box-shadow: 0 10px 30px rgba(255, 0, 0, 0.2);
+    border: 1px solid var(--primary-color);
     text-align: center;
 }
 
 .config-container h2 {
     margin-bottom: 30px;
     color: var(--text-color);
-    font-size: 1.6rem;
-    font-weight: 400;
+    font-size: 1.8rem;
 }
 
 .config-form {
@@ -88,172 +84,187 @@ header p {
 .form-group label {
     display: block;
     margin-bottom: 8px;
-    font-weight: 400;
+    font-weight: 600;
     color: var(--text-color);
-    font-size: 0.95rem;
 }
 
 .form-control {
     width: 100%;
-    padding: 14px 16px;
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
+    padding: 12px 15px;
+    border: 2px solid #333;
+    border-radius: 8px;
     font-size: 1rem;
     transition: all 0.3s ease;
     background: var(--secondary-dark);
     color: var(--text-color);
-    font-weight: 300;
+    border-color: #444;
 }
 
 .form-control:focus {
     outline: none;
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.1);
 }
 
 .form-group small {
     display: block;
-    margin-top: 6px;
+    margin-top: 5px;
     color: var(--text-secondary);
-    font-size: 0.8rem;
-    font-weight: 300;
+    font-size: 0.85rem;
 }
 
 /* Container do Quiz */
 .quiz-container {
-    background: var(--surface-color);
-    border-radius: 20px;
+    background: var(--secondary-color);
+    border-radius: 15px;
     padding: 30px;
+    box-shadow: 0 10px 30px rgba(255, 0, 0, 0.2);
     margin-bottom: 30px;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--primary-color);
 }
 
 .quiz-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 30px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #333;
 }
 
 .quiz-info {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 15px;
 }
 
 #question-number {
-    font-size: 1.1rem;
-    font-weight: 400;
-    color: var(--text-color);
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--primary-color);
 }
 
 .dificuldade-indicator {
-    padding: 6px 16px;
+    padding: 6px 12px;
     border-radius: 20px;
-    font-size: 0.75rem;
-    font-weight: 500;
+    font-size: 0.8rem;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
 }
 
 .dificuldade-facil {
-    background-color: rgba(16, 185, 129, 0.1);
-    color: var(--success-color);
-    border: 1px solid var(--success-color);
+    background-color: rgba(0, 255, 0, 0.1);
+    color: #00ff00;
+    border: 1px solid #00ff00;
 }
 
 .dificuldade-medio {
-    background-color: rgba(245, 158, 11, 0.1);
-    color: var(--warning-color);
-    border: 1px solid var(--warning-color);
+    background-color: rgba(255, 170, 0, 0.1);
+    color: #ffaa00;
+    border: 1px solid #ffaa00;
 }
 
 .dificuldade-dificil {
-    background-color: rgba(239, 68, 68, 0.1);
-    color: var(--error-color);
-    border: 1px solid var(--error-color);
+    background-color: rgba(255, 0, 0, 0.1);
+    color: #ff0000;
+    border: 1px solid #ff0000;
 }
 
 .question-content h2 {
-    margin-bottom: 30px;
+    margin-bottom: 25px;
     color: var(--text-color);
-    font-size: 1.25rem;
-    line-height: 1.6;
-    padding: 20px;
-    background: rgba(15, 23, 42, 0.5);
-    border-radius: 16px;
-    font-weight: 400;
-    border-left: 3px solid var(--primary-color);
+    font-size: 1.3rem;
+    line-height: 1.5;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    border-left: 4px solid var(--primary-color);
+}
+
+.question-source {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 10px;
+    font-style: italic;
+    border-left: 3px solid #007bff;
+    padding-left: 10px;
 }
 
 .alternatives {
     display: flex;
     flex-direction: column;
     gap: 12px;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 }
 
 .alternative {
-    padding: 18px 24px;
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
+    padding: 15px 20px;
+    border: 2px solid #333;
+    border-radius: 10px;
     cursor: pointer;
     transition: all 0.3s ease;
     background: var(--secondary-dark);
     color: var(--text-color);
     font-size: 1rem;
-    font-weight: 300;
 }
 
 .alternative:hover:not(.disabled):not(.correct):not(.incorrect) {
     border-color: var(--primary-color);
-    background-color: rgba(37, 99, 235, 0.05);
-    transform: translateY(-1px);
+    background-color: rgba(255, 0, 0, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 0, 0, 0.2);
 }
 
 .alternative.selected {
     border-color: var(--primary-color);
-    background-color: rgba(37, 99, 235, 0.1);
-    color: var(--text-color);
-    font-weight: 400;
+    background-color: var(--primary-color);
+    color: #000;
+    font-weight: 600;
 }
 
 .alternative.correct {
     border-color: var(--success-color);
-    background-color: rgba(16, 185, 129, 0.1);
+    background-color: rgba(0, 170, 0, 0.1);
     color: var(--success-color);
 }
 
 .alternative.incorrect {
     border-color: var(--error-color);
-    background-color: rgba(239, 68, 68, 0.1);
+    background-color: rgba(255, 68, 68, 0.1);
     color: var(--error-color);
 }
 
 .alternative.disabled {
     cursor: not-allowed;
-    opacity: 0.6;
+    opacity: 0.7;
+}
+
+.alternative.disabled:hover,
+.alternative.correct:hover,
+.alternative.incorrect:hover {
+    border-color: inherit;
+    background-color: inherit;
+    transform: none;
+    box-shadow: none;
+    cursor: not-allowed;
 }
 
 .feedback {
     padding: 20px;
-    border-radius: 12px;
-    margin-bottom: 25px;
+    border-radius: 10px;
+    margin-bottom: 20px;
     font-size: 1rem;
-    font-weight: 300;
 }
 
 .feedback.correct {
-    background-color: rgba(16, 185, 129, 0.1);
-    border: 1px solid var(--success-color);
+    background-color: rgba(0, 170, 0, 0.1);
+    border: 2px solid var(--success-color);
     color: var(--success-color);
 }
 
 .feedback.incorrect {
-    background-color: rgba(239, 68, 68, 0.1);
-    border: 1px solid var(--error-color);
+    background-color: rgba(255, 68, 68, 0.1);
+    border: 2px solid var(--error-color);
     color: var(--error-color);
 }
 
@@ -266,46 +277,46 @@ header p {
 
 /* Barra de Progresso */
 .progress-container {
-    margin-top: 25px;
+    margin-top: 20px;
 }
 
 .progress-bar {
     width: 100%;
-    height: 6px;
-    background-color: var(--border-color);
-    border-radius: 3px;
+    height: 10px;
+    background-color: #333;
+    border-radius: 5px;
     overflow: hidden;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 
 .progress-fill {
     height: 100%;
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
-    border-radius: 3px;
-    transition: width 0.4s ease;
+    border-radius: 5px;
+    transition: width 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
 }
 
 .progress-text {
     text-align: center;
     color: var(--text-secondary);
-    font-size: 0.85rem;
-    font-weight: 300;
+    font-size: 0.9rem;
 }
 
 /* Resultados */
 .results-container {
-    background: var(--surface-color);
-    border-radius: 20px;
+    background: var(--secondary-color);
+    border-radius: 15px;
     padding: 40px;
-    border: 1px solid var(--border-color);
+    box-shadow: 0 10px 30px rgba(255, 0, 0, 0.2);
+    border: 1px solid var(--primary-color);
     text-align: center;
 }
 
 .results-container h2 {
     margin-bottom: 30px;
     color: var(--text-color);
-    font-size: 1.8rem;
-    font-weight: 400;
+    font-size: 2rem;
 }
 
 .results-stats {
@@ -317,41 +328,41 @@ header p {
 
 .result-item {
     padding: 25px;
-    border: 1px solid var(--border-color);
-    border-radius: 16px;
+    border: 2px solid #333;
+    border-radius: 10px;
     background: var(--secondary-dark);
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
 .result-item:hover {
-    transform: translateY(-2px);
-    border-color: var(--primary-color);
+    transform: translateY(-5px);
 }
 
 .result-item.highlight {
     border-color: var(--primary-color);
-    background: rgba(37, 99, 235, 0.1);
-    color: var(--text-color);
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    color: #000;
+    box-shadow: 0 8px 25px rgba(255, 0, 0, 0.3);
 }
 
 .result-item.highlight .result-label,
 .result-item.highlight .result-value {
-    color: var(--text-color);
-    font-weight: 400;
+    color: #000;
+    font-weight: 700;
 }
 
 .result-label {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     margin-bottom: 8px;
     color: var(--text-secondary);
-    font-weight: 400;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
 }
 
 .result-value {
-    font-size: 2rem;
-    font-weight: 300;
+    font-size: 2.2rem;
+    font-weight: bold;
     color: var(--text-color);
 }
 
@@ -360,16 +371,15 @@ header p {
     margin: 30px 0;
     padding: 25px;
     background: var(--secondary-dark);
-    border-radius: 16px;
-    border: 1px solid var(--border-color);
+    border-radius: 15px;
+    border: 2px solid #333;
 }
 
 .time-stats h3 {
     text-align: center;
     margin-bottom: 20px;
     color: var(--text-color);
-    font-size: 1.3rem;
-    font-weight: 400;
+    font-size: 1.5rem;
 }
 
 .time-stats-grid {
@@ -385,22 +395,22 @@ header p {
     align-items: center;
     gap: 15px;
     padding: 20px;
-    background: var(--surface-color);
-    border-radius: 12px;
-    transition: all 0.3s ease;
-    border: 1px solid var(--border-color);
+    background: var(--secondary-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease;
+    border: 1px solid #444;
 }
 
 .time-stat-item:hover {
-    transform: translateY(-2px);
-    border-color: var(--primary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255, 0, 0, 0.2);
 }
 
 .time-stat-icon {
-    font-size: 2rem;
-    width: 50px;
+    font-size: 2.5rem;
+    width: 60px;
     text-align: center;
-    opacity: 0.8;
 }
 
 .time-stat-info {
@@ -408,15 +418,15 @@ header p {
 }
 
 .time-stat-label {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     color: var(--text-secondary);
     margin-bottom: 5px;
-    font-weight: 400;
+    font-weight: 600;
 }
 
 .time-stat-value {
-    font-size: 1.4rem;
-    font-weight: 300;
+    font-size: 1.6rem;
+    font-weight: bold;
     color: var(--text-color);
 }
 
@@ -424,83 +434,80 @@ header p {
     display: flex;
     gap: 15px;
     justify-content: center;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 /* Botões */
 .btn {
     padding: 14px 28px;
     border: none;
-    border-radius: 12px;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 0.95rem;
+    font-size: 1rem;
     transition: all 0.3s ease;
     text-decoration: none;
     display: inline-block;
     text-align: center;
-    font-weight: 400;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    border: 1px solid transparent;
 }
 
 .btn-primary {
-    background: var(--primary-color);
-    color: white;
-    border-color: var(--primary-color);
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    color: #000;
+    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
 }
 
 .btn-primary:hover:not(:disabled) {
-    background: var(--primary-dark);
-    transform: translateY(-1px);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 0, 0, 0.4);
 }
 
 .btn-secondary {
-    background: transparent;
+    background: linear-gradient(135deg, #333 0%, #000 100%);
     color: var(--text-color);
-    border-color: var(--border-color);
+    border: 1px solid #444;
 }
 
 .btn-secondary:hover:not(:disabled) {
-    background: rgba(255, 255, 255, 0.05);
-    transform: translateY(-1px);
-    border-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }
 
 .btn-outline {
     background: transparent;
     color: var(--primary-color);
-    border: 1px solid var(--primary-color);
+    border: 2px solid var(--primary-color);
 }
 
 .btn-outline:hover:not(:disabled) {
     background: var(--primary-color);
-    color: white;
-    transform: translateY(-1px);
+    color: #000;
+    transform: translateY(-2px);
 }
 
 .btn:disabled {
-    background: #374151;
-    color: #6b7280;
+    background: #555;
     cursor: not-allowed;
-    border-color: #374151;
+    opacity: 0.6;
     transform: none !important;
+    box-shadow: none !important;
 }
 
 /* Loading */
 .loading {
     text-align: center;
     padding: 60px;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     color: var(--text-color);
-    font-weight: 300;
 }
 
 .loading-spinner {
-    width: 40px;
-    height: 40px;
-    border: 2px solid var(--border-color);
-    border-top: 2px solid var(--primary-color);
+    width: 50px;
+    height: 50px;
+    border: 4px solid #333;
+    border-top: 4px solid var(--primary-color);
     border-radius: 50%;
     animation: spin 1s linear infinite;
     margin: 0 auto 20px;
@@ -517,27 +524,27 @@ header p {
 
 /* Aviso de Modo de Revisão */
 .review-notice {
-    background-color: rgba(37, 99, 235, 0.1);
-    border: 1px solid var(--primary-color);
+    background-color: rgba(255, 0, 0, 0.1);
+    border: 2px solid var(--primary-color);
     color: var(--primary-color);
-    padding: 16px 20px;
-    border-radius: 12px;
+    padding: 15px 20px;
+    border-radius: 10px;
     margin-bottom: 20px;
     text-align: center;
-    font-size: 0.95rem;
-    font-weight: 400;
+    font-size: 1rem;
+    font-weight: 600;
 }
 
 /* Responsividade */
 @media (max-width: 768px) {
     .container {
-        padding: 15px;
+        padding: 10px;
     }
     
     .quiz-container,
     .config-container,
     .results-container {
-        padding: 25px;
+        padding: 20px;
     }
     
     .quiz-header {
@@ -567,7 +574,7 @@ header p {
     }
     
     header h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
     }
     
     .btn {
@@ -578,7 +585,7 @@ header p {
 
 @media (max-width: 480px) {
     .result-value {
-        font-size: 1.6rem;
+        font-size: 1.8rem;
     }
     
     .time-stat-item {
@@ -588,24 +595,18 @@ header p {
     }
     
     .time-stat-icon {
-        font-size: 1.8rem;
+        font-size: 2rem;
     }
     
     .time-stat-value {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
     }
     
     header h1 {
-        font-size: 1.6rem;
+        font-size: 1.8rem;
     }
     
     header p {
-        font-size: 0.95rem;
-    }
-    
-    .config-container,
-    .quiz-container,
-    .results-container {
-        padding: 20px;
+        font-size: 1rem;
     }
 }

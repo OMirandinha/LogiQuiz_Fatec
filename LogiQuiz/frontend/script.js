@@ -280,37 +280,40 @@ class BooleanLogicQuiz {
      * Exibe uma questão específica no container
      * @param {number} index - Índice da questão a ser exibida
      */
-    showQuestion(index) {
-        try {
-            if (index < 0 || index >= this.currentQuestions.length) {
-                console.error('Índice de questão inválido:', index);
-                return;
-            }
-            
-            this.currentQuestionIndex = index;
-            this.selectedAlternative = null;
-            this.feedbackElement.classList.add('hidden');
-            
-            // Registra o tempo de início da questão atual (para estatísticas)
-            this.questionStartTimes.set(index, Date.now());
-            
-            const question = this.currentQuestions[index];
-            
-            // Atualiza o cabeçalho
-            this.questionNumberElement.textContent = `Questão ${index + 1} de ${this.currentQuestions.length}`;
-            this.questionTextElement.textContent = question.enunciado;
-            
-            // Atualiza o indicador de dificuldade
-            this.updateDifficultyIndicator(question.dificuldade);
-            
-            // Renderiza as alternativas e atualiza a navegação
-            this.renderAlternatives(question);
-            this.updateNavigationButtons();
-            this.updateProgress();
-            
-        } catch (error) {
-            console.error('Erro ao mostrar questão:', error);
+   showQuestion(index) {
+    try {
+        if (index < 0 || index >= this.currentQuestions.length) {
+            console.error('Índice de questão inválido:', index);
+            return;
         }
+        
+        this.currentQuestionIndex = index;
+        this.selectedAlternative = null;
+        this.feedbackElement.classList.add('hidden');
+        
+        // Registra o tempo de início da questão atual (para estatísticas)
+        this.questionStartTimes.set(index, Date.now());
+        
+        const question = this.currentQuestions[index];
+        
+        // Atualiza o cabeçalho
+        this.questionNumberElement.textContent = `Questão ${index + 1} de ${this.currentQuestions.length}`;
+        this.questionTextElement.textContent = question.enunciado;
+        
+        // ATUALIZAÇÃO: Exibe a fonte da questão
+        this.updateQuestionSource(question.fonte);
+        
+        // Atualiza o indicador de dificuldade
+        this.updateDifficultyIndicator(question.dificuldade);
+        
+        // Renderiza as alternativas e atualiza a navegação
+        this.renderAlternatives(question);
+        this.updateNavigationButtons();
+        this.updateProgress();
+        
+    } catch (error) {
+        console.error('Erro ao mostrar questão:', error);
+    }
     }
 
     /**
@@ -328,6 +331,34 @@ class BooleanLogicQuiz {
         this.dificuldadeIndicator.className = 'dificuldade-indicator';
         this.dificuldadeIndicator.classList.add(`dificuldade-${difficulty}`);
     }
+
+    /**
+    * Atualiza a exibição da fonte da questão
+    * @param {string} source - Fonte/origem da questão
+    */
+    updateQuestionSource(source) {
+    try {
+        // Verifica se o elemento existe, se não, cria
+        let sourceElement = document.getElementById('question-source');
+        if (!sourceElement) {
+            sourceElement = document.createElement('div');
+            sourceElement.id = 'question-source';
+            sourceElement.className = 'question-source';
+            // Insere antes do elemento da questão
+            this.questionTextElement.parentNode.insertBefore(sourceElement, this.questionTextElement);
+        }
+        
+        // Atualiza o conteúdo da fonte
+        if (source && source.trim() !== '') {
+            sourceElement.textContent = `Fonte: ${source}`;
+            sourceElement.style.display = 'block';
+        } else {
+            sourceElement.style.display = 'none';
+        }
+    } catch (error) {
+        console.error('Erro ao atualizar fonte da questão:', error);
+    }
+}
 
     /**
      * Renderiza as alternativas da questão atual
@@ -752,4 +783,3 @@ document.addEventListener('DOMContentLoaded', () => {
         alert('Erro ao inicializar o quiz. Verifique o console para mais detalhes.');
     }
 });
-
