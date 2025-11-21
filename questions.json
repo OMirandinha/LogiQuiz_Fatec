@@ -1,0 +1,488 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "enunciado": "Qual o resultado da expressão: V ∧ V ∧ V ∧ V ∧ F?",
+      "alternativas": [
+        "Verdadeiro",
+        "Falso"
+      ],
+      "respostaCorreta": 1,
+      "explicacao": "A operação AND (∧) retorna verdadeiro apenas quando TODOS os operandos são verdadeiros. Como há um Falso (F) na expressão, o resultado é Falso.",
+      "dificuldade": "facil",
+      "fonte": "local"
+    },
+    {
+      "id": 2,
+      "enunciado": "Qual o resultado da expressão: (V ∨ V) ∧ F?",
+      "alternativas": [
+        "Verdadeiro",
+        "Falso"
+      ],
+      "respostaCorreta": 1,
+      "explicacao": "Primeiro resolvemos (V ∨ V) = V, depois V ∧ F = F. O AND com Falso sempre resulta em Falso.",
+      "dificuldade": "facil",
+      "fonte": "local"
+    },
+    {
+      "id": 3,
+      "enunciado": "Qual o resultado da expressão: ¬(V ∨ V)?",
+      "alternativas": [
+        "Verdadeiro",
+        "Falso"
+      ],
+      "respostaCorreta": 1,
+      "explicacao": "Primeiro resolvemos (V ∨ V) = V, depois aplicamos a negação: ¬V = F.",
+      "dificuldade": "facil",
+      "fonte": "local"
+    },
+    {
+      "id": 4,
+      "enunciado": "Qual o resultado da expressão: (¬V) ∨ V?",
+      "alternativas": [
+        "Verdadeiro",
+        "Falso"
+      ],
+      "respostaCorreta": 0,
+      "explicacao": "¬V = F, então F ∨ V = V. Na disjunção (OU), se pelo menos um operando for verdadeiro, o resultado é verdadeiro.",
+      "dificuldade": "medio",
+      "fonte": "local"
+    },
+    {
+      "id": 5,
+      "enunciado": "Qual o resultado da expressão: V ∨ (V ∧ F)?",
+      "alternativas": [
+        "Verdadeiro",
+        "Falso"
+      ],
+      "respostaCorreta": 0,
+      "explicacao": "Primeiro resolvemos V ∧ F = F, depois V ∨ F = V. A presença do V garante que o resultado seja verdadeiro.",
+      "dificuldade": "medio",
+      "fonte": "local"
+    },
+    {
+      "id": 6,
+      "enunciado": "Qual o valor-verdade de '8 é par ou 6 é ímpar'?",
+      "alternativas": [
+        "Verdadeiro",
+        "Falso"
+      ],
+      "respostaCorreta": 0,
+      "explicacao": "8 é par (V), 6 é ímpar (F). Na disjunção (OU), basta um ser verdadeiro para o resultado ser verdadeiro: V ∨ F = V.",
+      "dificuldade": "medio",
+      "fonte": "local"
+    },
+    {
+      "id": 7,
+      "enunciado": "Qual o valor-verdade de '8 é par e 6 é ímpar'?",
+      "alternativas": [
+        "Verdadeiro",
+        "Falso"
+      ],
+      "respostaCorreta": 1,
+      "explicacao": "8 é par (V), 6 é ímpar (F). Na conjunção (E), ambos devem ser verdadeiros: V ∧ F = F.",
+      "dificuldade": "medio",
+      "fonte": "local"
+    },
+    {
+      "id": 8,
+      "enunciado": "A expressão (x ∧ y) ∨ (x ∧ ¬y) é logicamente equivalente a:",
+      "alternativas": [
+        "x",
+        "y", 
+        "x ∨ y",
+        "x ∧ y"
+      ],
+      "respostaCorreta": 0,
+      "explicacao": "Pela propriedade distributiva e identidade: (x ∧ y) ∨ (x ∧ ¬y) ≡ x ∧ (y ∨ ¬y) ≡ x ∧ V ≡ x",
+      "dificuldade": "dificil",
+      "fonte": "local"
+    },
+    {
+      "id": 9,
+      "enunciado": "Dizer que 'Pedro não é pedreiro ou Paulo é paulista' é logicamente equivalente a:",
+      "alternativas": [
+        "Se Pedro é pedreiro, então Paulo é paulista",
+        "Se Paulo é paulista, então Pedro é pedreiro",
+        "Se Pedro não é pedreiro, então Paulo é paulista",
+        "Se Pedro é pedreiro, então Paulo não é paulista"
+      ],
+      "respostaCorreta": 0,
+      "explicacao": "A equivalência lógica ¬p ∨ q ≡ p → q é uma das leis da implicação material.",
+      "dificuldade": "dificil",
+      "fonte": "local"
+    },
+    {
+      "id": 10,
+      "enunciado": "A proposição (p ∧ q) → r tem valor lógico falso. Quais os valores de p, q e r?",
+      "alternativas": [
+        "V - V - F",
+        "V - F - V",
+        "F - V - V", 
+        "F - F - V"
+      ],
+      "respostaCorreta": 0,
+      "explicacao": "Para uma implicação ser falsa, o antecedente deve ser verdadeiro e o consequente falso. Logo, p ∧ q = V (portanto p = V e q = V) e r = F.",
+      "dificuldade": "dificil",
+      "fonte": "local"
+    },
+    
+    {
+      "id": 11,
+      "enunciado": "Assinale a alternativa que apresenta CORRETAMENTE a expressão booleana que representa a operação 'ou exclusivo' (XOR):",
+      "alternativas": [
+        "A OR B",
+        "A AND B", 
+        "NOT (A OR B)",
+        "(A OR B) AND NOT (A AND B)"
+      ],
+      "respostaCorreta": 3,
+      "explicacao": "A operação XOR (ou exclusivo) retorna verdadeiro quando A e B são diferentes. A expressão (A OR B) AND NOT (A AND B) significa: A ou B é verdadeiro, mas não ambos ao mesmo tempo.",
+      "dificuldade": "medio",
+      "fonte": "UFV - 2025"
+    },
+    {
+      "id": 12,
+      "enunciado": "Assinale a opção que apresenta a correta equivalência entre as expressões booleanas.",
+      "alternativas": [
+        "(A+B)⋅C=(A⋅B)⋅C",
+        "(A+B)⋅C=(A⋅B)+C",
+        "(A+B)⋅C=(A+B)⋅C",
+        "(A+B)+C=(A+B)⋅C",
+        "(A+B)+C=(A⋅B)⋅C"
+      ],
+      "respostaCorreta": 2,
+      "explicacao": "A expressão (A+B)⋅C é equivalente a (A+B)⋅C, pois a barra superior indica a negação e a expressão é idêntica em ambos os lados.",
+      "dificuldade": "dificil",
+      "fonte": "Marinha - 2025"
+    },
+    {
+      "id": 13,
+      "enunciado": "Na linguagem Javascript, valores podem ser convertidos para o tipo boolean. Marque (T) para a opção que resulta em true quando convertida para boolean e (F) para aquela que resulta em false. ( ) string vazia ('') ( ) null ( ) undefined. As opções são, respectivamente:",
+      "alternativas": [
+        "T – F – T",
+        "T – T – F", 
+        "F – F – T",
+        "F – T – F",
+        "F – F – F"
+      ],
+      "respostaCorreta": 4,
+      "explicacao": "Em JavaScript: string vazia ('') = false, null = false, undefined = false. Portanto, F – F – F.",
+      "dificuldade": "medio",
+      "fonte": "FGV - 2025"
+    },
+    {
+      "id": 14,
+      "enunciado": "Considere as seguintes expressões lógicas: I. (a < b) or (b > a and c > b and d < a) II. (a < b and b > c) or (c >= a) III. (a < b) xor (a < b) IV. (a < a). Considerando a=10, b=20, c=30 e d=40, assinale a alternativa que apresenta CORRETAMENTE o resultado lógico das expressões I, II, III e IV, respectivamente:",
+      "alternativas": [
+        "verdadeiro, verdadeiro, verdadeiro, verdadeiro",
+        "verdadeiro, verdadeiro, falso, falso",
+        "falso, verdadeiro, falso, verdadeiro", 
+        "falso, falso, falso, falso"
+      ],
+      "respostaCorreta": 1,
+      "explicacao": "I: (10<20)=V or (20>10=V and 30>20=V and 40<10=F) = V or (V and V and F) = V or F = V. II: (10<20=V and 20>30=F) or (30>=10=V) = F or V = V. III: XOR com operandos iguais sempre é F. IV: (10<10)=F. Resultado: V, V, F, F.",
+      "dificuldade": "dificil",
+      "fonte": "UFV - 2025"
+    },
+    {
+      "id": 15,
+      "enunciado": "Dados booleanos são usados para representar:",
+      "alternativas": [
+        "Os dois únicos valores lógicos possíveis: verdadeiro e falso",
+        "Números inteiros (positivos, negativos ou zero)",
+        "Números com casas decimais", 
+        "Cadeias de caracteres (texto)",
+        "Coleções ordenadas e imutáveis de itens"
+      ],
+      "respostaCorreta": 0,
+      "explicacao": "Dados booleanos representam exclusivamente os dois valores lógicos: verdadeiro (true) e falso (false), sendo a base da lógica booleana e da tomada de decisão em programação.",
+      "dificuldade": "facil",
+      "fonte": "Prefeitura de Céu Azul - 2025"
+    },
+       {
+      "id": 16,
+      "enunciado": "As expressões aritméticas, lógicas e relacionais são fundamentais para a tomada de decisões e cálculos em linguagens de programação. Sobre essas expressões, analise as alternativas abaixo e, em seguida, assinale a correta.",
+      "alternativas": [
+        "Expressões lógicas podem avaliar condições em cascata, mas sempre resultam em um número inteiro representando verdadeiro (1) ou falso (0), independentemente da linguagem.",
+        "O uso de operadores aritméticos em expressões relacionais é limitado, pois tais operadores não podem ser combinados com operadores de comparação.",
+        "Expressões relacionais retornam sempre valores booleanos, indicando se a relação especificada entre dois operandos é verdadeira ou falsa.",
+        "Operadores lógicos, como AND e OR, têm maior precedência do que operadores aritméticos, como adição e subtração, em linguagens de programação padrão."
+      ],
+      "respostaCorreta": 2,
+      "explicacao": "Expressões relacionais (como ==, !=, <, >, <=, >=) sempre retornam valores booleanos (verdadeiro ou falso) indicando se a relação entre os operandos é satisfeita.",
+      "dificuldade": "medio",
+      "fonte": "IBAM - 2025"
+    },
+    {
+      "id": 17,
+      "enunciado": "Uma estrutura de seleção realiza o teste lógico da expressão C = not(A and not(B)) or (A and B). Sendo A e B expressões lógicas, a expressão equivalente a C é:",
+      "alternativas": [
+        "(A or not(B))",
+        "(A and not(B))",
+        "(not(A) and B)",
+        "(not(A) or not(B))",
+        "not(A and not(B))"
+      ],
+      "respostaCorreta": 0,
+      "explicacao": "Simplificando a expressão: not(A and not(B)) or (A and B) = (not A or B) or (A and B) = A or not(B). Pode-se verificar pela tabela verdade que ambas as expressões são equivalentes.",
+      "dificuldade": "dificil",
+      "fonte": "Ano: 2025"
+    },
+    {
+      "id": 18,
+      "enunciado": "A lógica fuzzy é um superconjunto da lógica booleana e acrescenta o conceito de verdade parcial, isto é, gradações ou níveis de verdade. São operações padrão da lógica fuzzy:",
+      "alternativas": [
+        "união, intersecção e subtração",
+        "união, intersecção e complemento",
+        "intersecção, subtração e pertinência",
+        "intersecção, complemento e pertinência"
+      ],
+      "respostaCorreta": 1,
+      "explicacao": "As operações padrão da lógica fuzzy são união (equivalente ao OR), intersecção (equivalente ao AND) e complemento (equivalente ao NOT), porém com valores contínuos entre 0 e 1.",
+      "dificuldade": "medio",
+      "fonte": "Instituto Verbena - 2024"
+    },
+    {
+      "id": 19,
+      "enunciado": "Considere duas variáveis A e B do tipo inteiro e que estejam inicializadas com valores maiores do que zero em um programa escrito na linguagem de programação C. Assinale a alternativa que indica o comando que retornará um valor verdadeiro, caso ambas as variáveis tenham o mesmo valor.",
+      "alternativas": [
+        "!(A & B)",
+        "A - B",
+        "!(A ^ B)",
+        "A << B",
+        "A >> B"
+      ],
+      "respostaCorreta": 2,
+      "explicacao": "O operador XOR (^) retorna 0 quando os bits são iguais. Portanto, !(A ^ B) retornará verdadeiro (1) quando A e B forem iguais, pois A ^ B será 0 e a negação será 1.",
+      "dificuldade": "dificil",
+      "fonte": "IADES - 2024"
+    },
+    {
+      "id": 20,
+      "enunciado": "A expressão booleana X a seguir está expressa em função de A, B e C: X = ABC + A¬B¬C + ¬A¬B¬C. Uma possível expressão booleana equivalente, obtida por meio do uso de operações presentes na álgebra booleana, é:",
+      "alternativas": [
+        "ABC + A",
+        "ABC + B C",
+        "A + A B C",
+        "B C",
+        "ABC"
+      ],
+      "respostaCorreta": 1,
+      "explicacao": "Simplificando a expressão: ABC + A¬B¬C + ¬A¬B¬C = ABC + ¬C(A¬B + ¬A¬B) = ABC + ¬C(¬B(A + ¬A)) = ABC + ¬C¬B = ABC + B C (considerando a notação da questão).",
+      "dificuldade": "dificil",
+      "fonte": "VUNESP - 2024"
+    },
+    {
+      "id": 21,
+      "enunciado": "Leia o caso a seguir: Considere um banco de dados que utiliza uma estrutura de indexação baseada em árvores B+ para otimizar consultas. A eficiência dessa estrutura é crucial para garantir a escalabilidade e o desempenho do sistema em cenários de grande volume de dados. Com base nesse contexto, a álgebra booleana e a lógica digital aplicadas a essa estrutura de indexação é:",
+      "alternativas": [
+        "AND - permite a interseção eficiente de listas de índices, reduzindo o conjunto de dados a serem consultados",
+        "OR - amplia o conjunto de resultados ao combinar múltiplas listas de índices, o que pode aumentar o tempo de consulta",
+        "NOT - exclui registros específicos dos resultados, o que pode ser útil, mas não impacta diretamente a eficiência da indexação",
+        "XOR - compara duas listas de índices e retorna apenas os elementos distintos, o que não é comum em estruturas de indexação"
+      ],
+      "respostaCorreta": 0,
+      "explicacao": "O operador AND é fundamental em estruturas de indexação como árvores B+ para realizar interseções eficientes de múltiplos índices, reduzindo significativamente o conjunto de dados a serem processados nas consultas.",
+      "dificuldade": "medio",
+      "fonte": "Instituto Verbena - 2024"
+    },
+    {
+      "id": 22,
+      "enunciado": "Em linguagens de programação, uma avaliação em curto-circuito de uma expressão é uma avaliação na qual o resultado é determinado sem avaliar todos os operandos e/ou operadores. Considerar a seguinte expressão booleana: (a >= 0 && (b < 10). Assinalar o valor da variável 'a' que permite uma avaliação em curto-circuito.",
+      "alternativas": [
+        "2",
+        "0", 
+        "-1",
+        "3"
+      ],
+      "respostaCorreta": 2,
+      "explicacao": "Na avaliação em curto-circuito com AND (&&), se a primeira condição for falsa, a segunda não é avaliada. Para a >= 0 ser falsa, 'a' deve ser negativo, como -1.",
+      "dificuldade": "medio",
+      "fonte": "Objetiva Concursos - 2024"
+    },
+    {
+      "id": 23,
+      "enunciado": "Diante da estrutura e, com base nos operadores lógicos, considere as variáveis e valores X = 6, Y = 7 e Z = 5 para julgar os itens que se seguem. O resultado individual das expressões I, II e III, será, respectivamente: I. (Y - X) > (Y - Z) OR Y > (X - Z) | II. NOT (Y = (X + Z)) | III. (X + Y) > (Y + Z) AND Y < (Z + X)",
+      "alternativas": [
+        "Verdadeiro; Falso; Verdadeiro",
+        "Falso; Verdadeiro; Falso",
+        "Falso; Falso; Falso",
+        "Falso; Verdadeiro; Verdadeiro",
+        "Verdadeiro; Verdadeiro; Verdadeiro"
+      ],
+      "respostaCorreta": 1,
+      "explicacao": "I: (7-6)=1 > (7-5)=2? Falso OR 7 > (6-5)=1? Verdadeiro = Verdadeiro | II: NOT (7 = (6+5)=11)? = NOT (Falso) = Verdadeiro | III: (6+7)=13 > (7+5)=12? Verdadeiro AND 7 < (5+6)=11? Verdadeiro = Verdadeiro",
+      "dificuldade": "medio",
+      "fonte": "CENTEC - 2024"
+    },
+    {
+      "id": 24,
+      "enunciado": "Na álgebra booleana, as funções booleanas são uma forma de representar o comportamento lógico, por exemplo, de um circuito digital utilizando termos. Duas formas de escrever funções booleanas são com mintermos e maxtermos. Sobre as operações com mintermos e maxtermos, assinale a alternativa CORRETA.",
+      "alternativas": [
+        "Os mintermos geram um produto entre as variáveis e, entre os mintermos, é realizada uma soma, gerando o conceito de Soma de Produtos (SOP)",
+        "Os maxtermos se diferenciam dos mintermos devido a não necessidade de apresentar todas as variáveis nos termos na forma canônica",
+        "A forma canônica de um mintermo ou maxtermo deve apresentar todas as linhas onde possui como resultado 1, mas não precisa apresentar todas as variáveis de entrada",
+        "Uma tabela-verdade, que possui quatro variáveis e apenas três linhas com valores iguais ao valor lógico 1, possui quatro mintermos com 3 variáveis",
+        "Um produto das somas (POS) representa todas as linhas onde a combinação das entradas tem como resultado o valor 1"
+      ],
+      "respostaCorreta": 0,
+      "explicacao": "Mintermos são produtos de todas as variáveis (na forma direta ou complementada) que são somados para formar a expressão SOP (Soma de Produtos), representando as linhas da tabela verdade onde a saída é 1.",
+      "dificuldade": "dificil",
+      "fonte": "ACAFE - 2024"
+    },
+    {
+      "id": 25,
+      "enunciado": "Considere as entradas A=10011; B=10010; C=11000. Assinale a opção que apresenta a saída da expressão lógica a seguir: X = A.B.C",
+      "alternativas": [
+        "01000",
+        "01111", 
+        "10000",
+        "10111",
+        "01101"
+      ],
+      "respostaCorreta": 2,
+      "explicacao": "A operação é o AND bit a bit: A=10011, B=10010, C=11000. AND entre A e B: 10011 AND 10010 = 10010. Resultado AND C: 10010 AND 11000 = 10000",
+      "dificuldade": "medio",
+      "fonte": "Marinha - 2024"
+    },
+       {
+      "id": 26,
+      "enunciado": "No contexto de operadores lógicos, considere as entradas ALFA - 1101 e BRAVO - 1011 e a saída CHARLIE: 0110. Assinale a opção que apresenta o operador lógico que, aplicado nas entradas, resultará na saída.",
+      "alternativas": [
+        "NOT AND",
+        "AND",
+        "OR", 
+        "NOT",
+        "XOR"
+      ],
+      "respostaCorreta": 4,
+      "explicacao": "ALFA=1101, BRAVO=1011. XOR bit a bit: 1 XOR 1=0, 1 XOR 0=1, 0 XOR 1=1, 1 XOR 1=0 → 0110, que é igual a CHARLIE.",
+      "dificuldade": "medio",
+      "fonte": "Ano: 2024"
+    },
+    {
+      "id": 27,
+      "enunciado": "O programa Excel, do pacote Office 2010, permite que as células computem o valor de expressões. Analise as seguintes afirmações sobre expressões inseridas em células do Excel: I. A expressão =E(1;0) retorna o resultado VERDADEIRO. II. A expressão =OU(1;0) retorna o resultado VERDADEIRO. III. A expressão =NÃO(0) retorna o resultado FALSO.",
+      "alternativas": [
+        "I, apenas",
+        "II, apenas",
+        "III, apenas",
+        "I, II, apenas",
+        "II, III, apenas"
+      ],
+      "respostaCorreta": 1,
+      "explicacao": "I: =E(1;0) → E(VERDADEIRO,FALSO) = FALSO | II: =OU(1;0) → OU(VERDADEIRO,FALSO) = VERDADEIRO | III: =NÃO(0) → NÃO(FALSO) = VERDADEIRO. Apenas II está correta.",
+      "dificuldade": "facil",
+      "fonte": "EDUCA - 2024"
+    },
+    {
+      "id": 28,
+      "enunciado": "A lógica fuzzy é uma extensão da lógica booleana. Embora as técnicas de controle possam ser implementadas por modelos matemáticos, as implementações baseadas na lógica fuzzy apresentam um melhor desempenho. Qual é o aspecto fundamental da lógica fuzzy?",
+      "alternativas": [
+        "É ideal para sistemas em que as variáveis de entrada têm limites bem definidos e não variam",
+        "Permite modelar situações em que os limites entre categorias são difusos e não nitidamente definidos",
+        "Requer que todas as regras sejam expressas em termos de 'se-então' para funcionar corretamente",
+        "Utiliza sempre conjuntos crisp para representar valores de entrada e saída",
+        "Utiliza somente funções lineares para representar a pertinência dos elementos aos conjuntos fuzzy"
+      ],
+      "respostaCorreta": 1,
+      "explicacao": "A lógica fuzzy permite lidar com conceitos vagos e imprecisos, onde os limites entre categorias não são bem definidos, usando graus de pertinência entre 0 e 1 em vez de valores booleanos absolutos.",
+      "dificuldade": "medio",
+      "fonte": "CESGRANRIO - 2024"
+    },
+    {
+      "id": 29,
+      "enunciado": "Em algoritmos, comumente são utilizados operadores matemáticos e lógicos, baseado em uma operação onde deseja-se verificar a igualdade entre um valor A e um valor B, assinale a alternativa correta, baseada na linguagem de programação C:",
+      "alternativas": [
+        "A = B",
+        "A <-> B", 
+        "A == B",
+        "A === B"
+      ],
+      "respostaCorreta": 2,
+      "explicacao": "Na linguagem C, o operador de igualdade é '=='. O operador '=' é de atribuição, '<->' não existe em C, e '===' é usado em outras linguagens como JavaScript para comparação estrita.",
+      "dificuldade": "facil",
+      "fonte": "IBFC - 2023"
+    },
+    {
+      "id": 30,
+      "enunciado": "Considerando as equações lógicas A.(B + C) e A.(B.D), ao aplicarmos, respectivamente, as propriedades Distributiva e Associativa, da Álgebra Booleana, sobre elas teremos:",
+      "alternativas": [
+        "(A.B) + (A.C) e (A.B).D",
+        "(A.B) + C e (A.B) + (A.D)",
+        "(A.B + C) e (A.B) + (A.D)",
+        "(A.B) + (A.C) e (A.B) + (B.D) + (A.D)",
+        "(A.B) + (B.C) + (A.C) e (A.B) + (A.D)"
+      ],
+      "respostaCorreta": 0,
+      "explicacao": "Propriedade Distributiva: A.(B + C) = A.B + A.C | Propriedade Associativa: A.(B.D) = (A.B).D",
+      "dificuldade": "medio",
+      "fonte": "FEPESE - 2023"
+    },
+    {
+      "id": 31,
+      "enunciado": "Sejam A=11011, B=01001 e C=00011, qual é o resultado da expressão lógica X = A - C + B?",
+      "alternativas": [
+        "11001",
+        "00001",
+        "01011", 
+        "01001",
+        "10110"
+      ],
+      "respostaCorreta": 0,
+      "explicacao": "Considerando operações bit a bit: A=11011, C=00011. A - C poderia ser interpretado como AND com NOT C, mas seguindo lógica booleana: (A AND NOT C) OR B = (11011 AND 11100) = 11000 OR 01001 = 11001",
+      "dificuldade": "dificil",
+      "fonte": "Marinha - 2023"
+    },
+    {
+      "id": 32,
+      "enunciado": "Assinale a opção que apresenta a representação booleana equivalente mais simplificada para a função F(X, Y, Z) = X·Z + Z·(X' + XY).",
+      "alternativas": [
+        "Z + Y·Z",
+        "Z + X·Y", 
+        "X·Z",
+        "X + Y·Z",
+        "Z"
+      ],
+      "respostaCorreta": 4,
+      "explicacao": "Simplificação: F = XZ + Z(X' + XY) = XZ + ZX' + ZXY = Z(X + X') + XYZ = Z(1) + XYZ = Z + XYZ = Z(1 + XY) = Z",
+      "dificuldade": "dificil",
+      "fonte": "Ano: 2023"
+    },
+    {
+      "id": 33,
+      "enunciado": "Sobre as identidades da álgebra booleana, qual opção representa uma forma da lei de DeMorgan?",
+      "alternativas": [
+        "A(A+B)=A",
+        "¬(ABC) = ¬A + ¬B + ¬C",
+        "A+AB=A", 
+        "A+BC=(A+B)(A+C)",
+        "A(¬A+B)=A"
+      ],
+      "respostaCorreta": 1,
+      "explicacao": "A lei de DeMorgan estabelece que: ¬(A·B) = ¬A + ¬B e ¬(A+B) = ¬A·¬B. Para três variáveis: ¬(A·B·C) = ¬A + ¬B + ¬C",
+      "dificuldade": "medio",
+      "fonte": "Ano: 2023"
+    },
+    {
+      "id": 34,
+      "enunciado": "Um programa apresenta 3 variáveis booleanas, P, Q e R, que podem assumir os valores Verdadeiro ou Falso. Deseja-se escrever uma expressão lógica que resulte Verdadeira quando somente uma das variáveis for Verdadeira ou somente uma delas for Falsa. Considerando que os operadores que unem essas variáveis são os operadores lógicos OR, AND e NOT, a expressão que contempla essas combinações é:",
+      "alternativas": [
+        "(NOT P AND NOT Q) OR (NOT P AND R) OR (Q AND NOT R)",
+        "(P AND NOT Q) OR R OR (Q AND NOT R)",
+        "(P AND NOT Q) OR (P AND NOT R) OR NOT P", 
+        "(P AND NOT Q) OR (NOT P AND R) OR (Q AND NOT R)",
+        "P OR (P AND R)"
+      ],
+      "respostaCorreta": 3,
+      "explicacao": "A expressão (P AND NOT Q AND NOT R) OR (NOT P AND Q AND NOT R) OR (NOT P AND NOT Q AND R) OR (P AND Q AND NOT R) OR (P AND NOT Q AND R) OR (NOT P AND Q AND R) se simplifica para (P AND NOT Q) OR (NOT P AND R) OR (Q AND NOT R), que cobre os casos onde exatamente uma é verdadeira ou exatamente uma é falsa.",
+      "dificuldade": "dificil",
+      "fonte": "FAURGS - 2018"
+    }
+
+  ]
+  
+
+  
+}
