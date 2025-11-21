@@ -107,26 +107,33 @@ class BooleanLogicQuiz {
      * Carrega todas as questões da API
      */
     async loadAllQuestions() {
-        try {
-            console.log('Carregando questões...');
-            const response = await fetch('/api/questions');
-            
-            if (!response.ok) {
-                throw new Error(`Erro HTTP: ${response.status}`);
-            }
-            
-            const data = await response.json();
-            this.allQuestions = data.questions;
-            console.log(`Carregadas ${this.allQuestions.length} questões`);
-            
-            // Atualiza o máximo de questões disponíveis
-            this.updateMaxQuestions(this.dificuldadeSelect.value);
-            
-        } catch (error) {
-            console.error('Erro ao carregar questões:', error);
-            this.loadingElement.innerHTML = 'Erro ao carregar questões. Verifique se o servidor está rodando.';
+    try {
+        console.log('Carregando questões...');
+        
+        // Tenta carregar do arquivo JSON local
+        const response = await fetch('./questions.json');
+        
+        if (!response.ok) {
+            throw new Error(`Erro ao carregar questões: ${response.status}`);
         }
+        
+        const data = await response.json();
+        this.allQuestions = data.questions;
+        console.log(`Carregadas ${this.allQuestions.length} questões do arquivo local`);
+        
+        // Atualiza o máximo de questões disponíveis
+        this.updateMaxQuestions(this.dificuldadeSelect.value);
+        
+    } catch (error) {
+        console.error('Erro ao carregar questões do JSON:', error);
+        
+        // Fallback: carrega questões diretamente no código
+        console.log('Usando questões embutidas como fallback');
+        this.allQuestions = this.getLocalQuestions();
+        this.updateMaxQuestions(this.dificuldadeSelect.value);
     }
+}
+
 
     /**
      * Atualiza o número máximo de questões baseado na dificuldade selecionada
