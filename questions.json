@@ -479,10 +479,484 @@
       "explicacao": "A expressão (P AND NOT Q AND NOT R) OR (NOT P AND Q AND NOT R) OR (NOT P AND NOT Q AND R) OR (P AND Q AND NOT R) OR (P AND NOT Q AND R) OR (NOT P AND Q AND R) se simplifica para (P AND NOT Q) OR (NOT P AND R) OR (Q AND NOT R), que cobre os casos onde exatamente uma é verdadeira ou exatamente uma é falsa.",
       "dificuldade": "dificil",
       "fonte": "FAURGS - 2018"
+    },
+
+       {
+      "id": 35,
+      "enunciado": "Qual é o resultado da operação AND se ambas as entradas forem 1 (verdadeiro)?",
+      "alternativas": [
+        "0",
+        "1",
+        "Depende da ordem",
+        "Nulo"
+      ],
+      "respostaCorreta": 1,
+      "explicacao": "A operação AND retorna 1 (verdadeiro) apenas quando ambas as entradas são 1. Se A=1 e B=1, então A AND B = 1.",
+      "dificuldade": "facil",
+      "fonte": "local"
+    },
+    {
+      "id": 36,
+      "enunciado": "A operação lógica que inverte o valor da entrada é:",
+      "alternativas": [
+        "AND",
+        "OR",
+        "NOT",
+        "XOR"
+      ],
+      "respostaCorreta": 2,
+      "explicacao": "O operador NOT (negação) inverte o valor da entrada: NOT 1 = 0 e NOT 0 = 1.",
+      "dificuldade": "facil",
+      "fonte": "local"
+    },
+    {
+      "id": 37,
+      "enunciado": "Em uma porta OR, a saída será 0 (falso) apenas quando:",
+      "alternativas": [
+        "Uma das entradas for 1",
+        "Ambas as entradas forem 1",
+        "Ambas as entradas forem 0",
+        "A primeira entrada for 1"
+      ],
+      "respostaCorreta": 2,
+      "explicacao": "A porta OR retorna 0 apenas quando todas as entradas são 0. Se pelo menos uma entrada for 1, a saída será 1.",
+      "dificuldade": "facil",
+      "fonte": "local"
+    },
+    {
+      "id": 38,
+      "enunciado": "Qual símbolo é comumente usado para representar a operação AND na álgebra booleana?",
+      "alternativas": [
+        "+",
+        ". (ponto)",
+        "⊕",
+        "'"
+      ],
+      "respostaCorreta": 1,
+      "explicacao": "Na álgebra booleana, o ponto (.) é usado para representar a operação AND, enquanto o sinal de mais (+) representa a operação OR.",
+      "dificuldade": "facil",
+      "fonte": "local"
+    },
+    {
+      "id": 39,
+      "enunciado": "A expressão A + 0 é igual a:",
+      "alternativas": [
+        "0",
+        "1",
+        "A",
+        "A'"
+      ],
+      "respostaCorreta": 2,
+      "explicacao": "Esta é a identidade da operação OR: qualquer variável OR com 0 resulta na própria variável. A + 0 = A.",
+      "dificuldade": "facil",
+      "fonte": "local"
+    },
+    {
+      "id": 40,
+      "enunciado": "A expressão A . 1 é igual a:",
+      "alternativas": [
+        "A",
+        "1",
+        "0",
+        "A'"
+      ],
+      "respostaCorreta": 0,
+      "explicacao": "Esta é a identidade da operação AND: qualquer variável AND com 1 resulta na própria variável. A . 1 = A.",
+      "dificuldade": "facil",
+      "fonte": "local"
+    },
+    {
+      "id": 41,
+      "enunciado": "Qual é a tabela verdade correta para duas variáveis (A, B)?",
+      "alternativas": [
+        "2 combinações",
+        "4 combinações",
+        "8 combinações",
+        "6 combinações"
+      ],
+      "respostaCorreta": 1,
+      "explicacao": "Para n variáveis, uma tabela verdade tem 2^n combinações. Para 2 variáveis: 2^2 = 4 combinações (00, 01, 10, 11).",
+      "dificuldade": "facil",
+      "fonte": "local"
+    },
+    {
+      "id": 42,
+      "enunciado": "O operador XOR (OU Exclusivo) retorna 1 quando:",
+      "alternativas": [
+        "As entradas são iguais",
+        "As entradas são diferentes",
+        "Ambas as entradas são 1",
+        "Ambas as entradas são 0"
+      ],
+      "respostaCorreta": 1,
+      "explicacao": "XOR retorna 1 quando as entradas são diferentes: (0 XOR 1) = 1, (1 XOR 0) = 1. Retorna 0 quando são iguais.",
+      "dificuldade": "facil",
+      "fonte": "local"
+    },
+    {
+      "id": 43,
+      "enunciado": "Qual porta lógica é representada pela expressão A + B?",
+      "alternativas": [
+        "AND",
+        "NAND",
+        "OR",
+        "NOR"
+      ],
+      "respostaCorreta": 2,
+      "explicacao": "O símbolo + representa a operação OR na álgebra booleana. A + B significa A OR B.",
+      "dificuldade": "facil",
+      "fonte": "local"
+    },
+    {
+      "id": 44,
+      "enunciado": "Se A=1 e B=0, qual é o resultado de A AND B?",
+      "alternativas": [
+        "1",
+        "0",
+        "Indefinido",
+        "A"
+      ],
+      "respostaCorreta": 1,
+      "explicacao": "AND retorna 1 apenas se ambas as entradas forem 1. Como B=0, o resultado é 0.",
+      "dificuldade": "facil",
+      "fonte": "local"
+    },
+    {
+      "id": 45,
+      "enunciado": "A negação de 0 é:",
+      "alternativas": [
+        "0",
+        "1",
+        "Nulo",
+        "Vazio"
+      ],
+      "respostaCorreta": 1,
+      "explicacao": "NOT 0 = 1 e NOT 1 = 0. A negação inverte o valor lógico.",
+      "dificuldade": "facil",
+      "fonte": "local"
+    },
+    {
+      "id": 46,
+      "enunciado": "De acordo com as Leis de De Morgan, a expressão (A . B)' é equivalente a:",
+      "alternativas": [
+        "A' . B'",
+        "A' + B'",
+        "A + B",
+        "A' . B"
+      ],
+      "respostaCorreta": 1,
+      "explicacao": "Primeira Lei de De Morgan: (A . B)' = A' + B'. A negação de um AND é igual ao OR das negações.",
+      "dificuldade": "medio",
+      "fonte": "local"
+    },
+    {
+      "id": 47,
+      "enunciado": "A expressão A . (B + C) é igual a:",
+      "alternativas": [
+        "A . B + C",
+        "(A . B) + (A . C)",
+        "A + (B . C)",
+        "(A + B) . (A + C)"
+      ],
+      "respostaCorreta": 1,
+      "explicacao": "Esta é a propriedade distributiva do AND sobre o OR: A . (B + C) = (A . B) + (A . C).",
+      "dificuldade": "medio",
+      "fonte": "local"
+    },
+    {
+      "id": 48,
+      "enunciado": "A porta NAND é equivalente a uma porta AND seguida de uma porta:",
+      "alternativas": [
+        "OR",
+        "XOR",
+        "NOT",
+        "Buffer"
+      ],
+      "respostaCorreta": 2,
+      "explicacao": "NAND significa NOT-AND. É uma porta AND seguida por uma porta NOT que inverte a saída.",
+      "dificuldade": "medio",
+      "fonte": "local"
+    },
+    {
+      "id": 49,
+      "enunciado": "Qual é o resultado de A + A'?",
+      "alternativas": [
+        "0",
+        "1",
+        "A",
+        "A'"
+      ],
+      "respostaCorreta": 1,
+      "explicacao": "Lei do terceiro excluído: uma variável OR com sua negação sempre resulta em 1. A + A' = 1.",
+      "dificuldade": "medio",
+      "fonte": "local"
+    },
+    {
+      "id": 50,
+      "enunciado": "Qual é o resultado de A . A'?",
+      "alternativas": [
+        "1",
+        "A",
+        "0",
+        "A'"
+      ],
+      "respostaCorreta": 2,
+      "explicacao": "Lei da contradição: uma variável AND com sua negação sempre resulta em 0. A . A' = 0.",
+      "dificuldade": "medio",
+      "fonte": "local"
+    },
+    {
+      "id": 51,
+      "enunciado": "A simplificação da expressão A + AB é:",
+      "alternativas": [
+        "B",
+        "A",
+        "AB",
+        "1"
+      ],
+      "respostaCorreta": 1,
+      "explicacao": "Lei da absorção: A + AB = A(1 + B) = A . 1 = A.",
+      "dificuldade": "medio",
+      "fonte": "local"
+    },
+    {
+      "id": 52,
+      "enunciado": "A expressão (A + B)' é equivalente a (De Morgan):",
+      "alternativas": [
+        "A' + B'",
+        "A' . B'",
+        "A . B",
+        "A + B"
+      ],
+      "respostaCorreta": 1,
+      "explicacao": "Segunda Lei de De Morgan: (A + B)' = A' . B'. A negação de um OR é igual ao AND das negações.",
+      "dificuldade": "medio",
+      "fonte": "local"
+    },
+    {
+      "id": 53,
+      "enunciado": "Qual porta lógica produz saída 1 apenas quando todas as entradas são 0?",
+      "alternativas": [
+        "NAND",
+        "NOR",
+        "XOR",
+        "XNOR"
+      ],
+      "respostaCorreta": 1,
+      "explicacao": "A porta NOR retorna 1 apenas quando todas as entradas são 0. Para qualquer outra combinação, retorna 0.",
+      "dificuldade": "medio",
+      "fonte": "local"
+    },
+    {
+      "id": 54,
+      "enunciado": "Se A=1, B=0, C=1, qual o valor de (A + B) . C?",
+      "alternativas": [
+        "0",
+        "1",
+        "C'",
+        "B"
+      ],
+      "respostaCorreta": 1,
+      "explicacao": "Primeiro: A + B = 1 + 0 = 1. Depois: 1 . C = 1 . 1 = 1.",
+      "dificuldade": "medio",
+      "fonte": "local"
+    },
+    {
+      "id": 55,
+      "enunciado": "A operação XNOR é o inverso da operação:",
+      "alternativas": [
+        "AND",
+        "OR",
+        "XOR",
+        "NAND"
+      ],
+      "respostaCorreta": 2,
+      "explicacao": "XNOR é a negação de XOR. Enquanto XOR retorna 1 para entradas diferentes, XNOR retorna 1 para entradas iguais.",
+      "dificuldade": "medio",
+      "fonte": "local"
+    },
+    {
+      "id": 56,
+      "enunciado": "Quantas linhas tem a tabela verdade de uma função com 3 variáveis de entrada?",
+      "alternativas": [
+        "4",
+        "6",
+        "8",
+        "9"
+      ],
+      "respostaCorreta": 2,
+      "explicacao": "Para n variáveis, a tabela verdade tem 2^n linhas. Para 3 variáveis: 2^3 = 8 linhas.",
+      "dificuldade": "medio",
+      "fonte": "local"
+    },
+    {
+      "id": 57,
+      "enunciado": "A simplificação da expressão (A + B)(A + C) resulta em:",
+      "alternativas": [
+        "A + BC",
+        "A + B + C",
+        "AB + C",
+        "AC + B"
+      ],
+      "respostaCorreta": 0,
+      "explicacao": "Propriedade distributiva do OR sobre AND: (A + B)(A + C) = A + BC.",
+      "dificuldade": "dificil",
+      "fonte": "local"
+    },
+    {
+      "id": 58,
+      "enunciado": "Qual expressão representa a propriedade de absorção?",
+      "alternativas": [
+        "A(A + B) = B",
+        "A + AB = B",
+        "A(A + B) = A",
+        "A + B = B + A"
+      ],
+      "respostaCorreta": 2,
+      "explicacao": "Lei da absorção: A(A + B) = A. A variável A 'absorve' o termo (A + B).",
+      "dificuldade": "dificil",
+      "fonte": "local"
+    },
+    {
+      "id": 59,
+      "enunciado": "A porta lógica universal, capaz de implementar qualquer outra função lógica, é:",
+      "alternativas": [
+        "XOR",
+        "AND",
+        "NAND",
+        "OR"
+      ],
+      "respostaCorreta": 2,
+      "explicacao": "As portas NAND e NOR são universais. Qualquer função lógica pode ser implementada usando apenas portas NAND.",
+      "dificuldade": "dificil",
+      "fonte": "local"
+    },
+    {
+      "id": 60,
+      "enunciado": "O mapa de Karnaugh é utilizado para:",
+      "alternativas": [
+        "Multiplicar binários",
+        "Simplificar expressões booleanas",
+        "Inverter sinais",
+        "Criar tabelas verdade"
+      ],
+      "respostaCorreta": 1,
+      "explicacao": "O mapa de Karnaugh é um método gráfico para simplificar expressões booleanas, agrupando termos adjacentes que diferem por apenas uma variável.",
+      "dificuldade": "dificil",
+      "fonte": "local"
+    },
+    {
+      "id": 61,
+      "enunciado": "A expressão A'B + AB' representa qual porta lógica?",
+      "alternativas": [
+        "XNOR",
+        "NAND",
+        "XOR",
+        "AND"
+      ],
+      "respostaCorreta": 2,
+      "explicacao": "A expressão A'B + AB' é a definição algébrica da porta XOR. Retorna 1 quando A e B são diferentes.",
+      "dificuldade": "dificil",
+      "fonte": "local"
+    },
+    {
+      "id": 62,
+      "enunciado": "A expressão AB + AB' simplifica para:",
+      "alternativas": [
+        "B",
+        "A",
+        "1",
+        "0"
+      ],
+      "respostaCorreta": 1,
+      "explicacao": "AB + AB' = A(B + B') = A . 1 = A. Esta é uma aplicação da lei distributiva.",
+      "dificuldade": "dificil",
+      "fonte": "local"
+    },
+    {
+      "id": 63,
+      "enunciado": "Qual é o dual da expressão A + 1 = 1?",
+      "alternativas": [
+        "A . 0 = 0",
+        "A . 1 = A",
+        "A + 0 = A",
+        "A' + 0 = 0"
+      ],
+      "respostaCorreta": 0,
+      "explicacao": "O dual é obtido trocando AND por OR e 0 por 1. O dual de A + 1 = 1 é A . 0 = 0.",
+      "dificuldade": "dificil",
+      "fonte": "local"
+    },
+    {
+      "id": 64,
+      "enunciado": "Em lógica digital, um 'mintermo' para 3 variáveis onde A=1, B=0, C=1 é representado por:",
+      "alternativas": [
+        "A + B' + C",
+        "A . B . C",
+        "A . B' . C",
+        "A' . B . C'"
+      ],
+      "respostaCorreta": 2,
+      "explicacao": "Um mintermo é um produto onde cada variável aparece uma vez (direta ou complementada). Para A=1, B=0, C=1: A . B' . C.",
+      "dificuldade": "dificil",
+      "fonte": "local"
+    },
+    {
+      "id": 65,
+      "enunciado": "A simplificação de A + A'B é:",
+      "alternativas": [
+        "A",
+        "B",
+        "A + B",
+        "AB"
+      ],
+      "respostaCorreta": 2,
+      "explicacao": "A + A'B = (A + A')(A + B) = 1 . (A + B) = A + B. Esta é uma aplicação da propriedade distributiva.",
+      "dificuldade": "dificil",
+      "fonte": "local"
+    },
+    {
+      "id": 66,
+      "enunciado": "Qual o valor de (A XOR B) XOR B?",
+      "alternativas": [
+        "B",
+        "0",
+        "A",
+        "1"
+      ],
+      "respostaCorreta": 2,
+      "explicacao": "XOR com a mesma variável duas vezes cancela o efeito: (A XOR B) XOR B = A XOR (B XOR B) = A XOR 0 = A.",
+      "dificuldade": "dificil",
+      "fonte": "local"
+    },
+    {
+      "id": 67,
+      "enunciado": "Se F(A,B,C) = Σ(0, 2, 4, 6), a função simplificada é (considere A o MSB):",
+      "alternativas": [
+        "A",
+        "B'",
+        "C'",
+        "C"
+      ],
+      "respostaCorreta": 2,
+      "explicacao": "Os mintermos 0 (000), 2 (010), 4 (100), 6 (110) correspondem a situações onde C=0. A função simplifica para C'.",
+      "dificuldade": "dificil",
+      "fonte": "local"
+    },
+    {
+      "id": 68,
+      "enunciado": "A lei da involução afirma que:",
+      "alternativas": [
+        "A + A = A",
+        "(A')' = A",
+        "A . 1 = A",
+        "A + AB = A"
+      ],
+      "respostaCorreta": 1,
+      "explicacao": "Lei da involução: a negação dupla retorna ao valor original. (A')' = A.",
+      "dificuldade": "dificil",
+      "fonte": "local"
     }
-
   ]
-  
-
-  
 }
+
