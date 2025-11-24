@@ -54,7 +54,7 @@ Paulo Takeshi
 
 Jeremias Eduardo
 
-Gabriel da Rosa
+Thiago Rocha
 
 ### Back-end
 
