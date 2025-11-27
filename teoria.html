@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Teste seus conhecimentos sobre Lógica Booleana com este quiz interativo. Aprenda conceitos de lógica, tabelas verdade e operações booleanas de forma divertida e prática.">
+  <meta name="keywords" content="lógica booleana, quiz, quiz de lógica, tabela verdade, tabelas verdade, lógica computacional, operações booleanas, AND, OR, NOT, aprendizado interativo, raciocínio lógico, lógica digital">
+  <link rel="icon" href="img/icone.jpg" type="image/jpg">
+  <title>LogiQuiz</title>
+  <link rel="stylesheet" href="css/style.css">
+</head> 
+<body>
+  <!-- =====NAV====== -->
+  <header>
+    <nav class="nav-bar">
+        <div class="logo">
+          <a href="index.html"><img src="img/logo.png"></a>
+        </div>
+        <div class="nav-list">
+          <ul>
+            <li class="nav-item"><a href="index.html" class="nav-link">Início</a></li>
+            <li class="nav-item"><a href="pratica.html" class="nav-link">Prática</a></li>
+            <li class="nav-item"><a href="teoria.html" class="nav-link">Teoria</a></li>
+          </ul>
+        </div>
+
+        <!-- Mwnu responsivel para celular -->
+        <div class="mobile-menu-icon">
+          <button onclick="menuShow()"><img class="icon" src="img/icone-menu-abrir.png" alt=""></button>
+        </div>
+    </nav>
+    <div class="mobile-menu">
+        <ul>
+          <li class="nav-item"><a href="index.html" class="nav-link-menu">Início</a></li>
+          <li class="nav-item"><a href="pratica.html" class="nav-link-menu">Prática</a></li>
+          <li class="nav-item"><a href="teoria.html" class="nav-link-menu">Teoria</a></li>
+        </ul>
+
+    </div>
+  </header>
+
+  <div class="layout-container">
+
+        <div class="menu-mobile">
+            <select id="seletor-menu">
+                <option value="secao-1">O que é?</option>
+                <option value="secao-2">Operadores Básicos</option>
+                <option value="secao-3">Tabelas-Verdade</option>
+                <option value="secao-4">Expressões Lógicas</option>
+            </select>
+        </div>
+
+        <nav class="menu-lateral">
+            <button class="btn-menu ativa" data-target="secao-1">
+                <h2>O que é?</h2>
+            </button>
+            <button class="btn-menu" data-target="secao-2">
+                <h2>Operadores Básicos</h2>
+            </button>
+            <button class="btn-menu" data-target="secao-3">
+                <h2>Tabelas-Verdade</h2>
+            </button>
+            <button class="btn-menu" data-target="secao-4">
+                <h2>Expressões Lógicas</h2>
+            </button>
+        </nav>
+
+        <main class="area-conteudo">
+            
+            <section id="secao-1" class="conteudo-secao ativa">
+                <h1 class="titulo">O que é Lógica Booleana?</h1>
+                <br>
+                <br>
+                <br>
+                <h2>Você já usa isso todos os dias. Sério!</h2>
+                <br>
+                <p>Pode parecer um nome complicado, mas a Lógica Booleana é simplesmente a 'lógica do <strong><u>'SIM'</u></strong>  ou <strong><u>'NÃO'</u></strong>.</p>
+                <br>
+                <p>Ela é a base de toda a computação moderna! Cada decisão que seu celular, seu computador ou seu videogame toma é baseada nela. E o mais legal? Você já a usa o tempo todo sem perceber:</p>
+                <br>
+                  <li class="lista">
+                    <p><b>Nas suas buscas:</b> Quando você digita no Google "melhor celular <strong><u>E</u></strong> barato", você está usando lógica! Você está dizendo ao Google que SÓ quer resultados que tenham as DUAS coisas.</p>
+                  </li>
+                  <br>
+                  <img src="./img/google_pesquisa.png">
+                  <br>
+                  <li class="lista">   
+                    <p><b>Nos seus jogos:</b> Seu personagem só consegue usar um "poder especial" <strong><u>SE</u></strong> você aperta o botão 'X' <strong><u>E</u></strong> a sua barra de poder está cheia.</p>
+                  </li>
+                  <br>
+                  <img src="./img/jogo_ilustracao.jpg">
+                  <br>
+                  <li class="lista">
+                    <p><b>Nas suas decisões:</b> "Eu vou ao parque <strong><u>SE</u></strong> fizer sol <strong><u>OU</u></strong> <strong><u>SE</u></strong> meus amigos me chamarem."</p>
+                  </li>
+                  <br>
+                  <img src="./img/ilustracao_sol.png">
+                  <br>
+                  <p>Essa lógica foi criada por um matemático chamado <strong>George Boole</strong> , e ela funciona com apenas dois valores: "<strong>VERDADEIRO (V)</strong> ou <strong>FALSO (F)</strong>".</p>
+                  <br>
+                  <h2>O Bloco Básico: Proposições</h2>
+                  <br>
+                  <p>Na Lógica Booleana, não trabalhamos com opiniões ('esse filme é bom'), mas sim com Proposições.</p>
+                  <p>Uma proposição é qualquer frase que possamos afirmar, sem dúvida, se ela é Verdadeira ou Falsa.</p>
+                  <li class="lista">
+                    <p><b>Exemplo 1:</b> "O sol é uma estrela." É uma proposição <strong><u>Verdadeira</u></strong>.</p>
+                  </li>
+                  <br>
+                  <li class="lista">   
+                    <p><b>Exemplo 2:</b> "Porcos podem voar." É uma proposição <strong><u>Falsa</u></strong>.</p>
+                  </li>
+                  <br>
+                  <li class="lista">
+                    <p><b>NÃO</b> é uma proposição: "Que horas são?" Isso é uma pergunta, não podemos dizer se é <strong><u>V</u></strong> ou <strong><u>F</u></strong>.</p>
+                  </li>
+                  <br>
+                  <li class="lista">
+                    <p><b>NÃO</b> é uma proposição: "Corra!" Isso é uma ordem.</p>
+                  </li>
+            </section>
+
+            <section id="secao-2" class="conteudo-secao">
+                <h1 class="titulo">Os 3 Operadores Lógicos Básicos</h1>
+                <br>
+                <br>
+                <br>
+                <p>Para combinar essas proposições (V ou F), usamos três ferramentas principais, chamadas <b>'operadores'</b>. Pense neles como os blocos de Lego da lógica.</p>
+                <br>
+                <h2>Operador <b>NÃO</b> (NOT): O Inversor</h2>
+                <br>
+                <p>O operador <b>NÃO</b> é o mais simples: ele apenas inverte o valor de uma proposição. O que é Verdadeiro vira <b>Falso</b>, e o que é Falso vira <b>Verdadeiro</b>.</p>
+                <br>
+                <li class="lista">
+                    <p><b>Analogia:</b> Pense em um interruptor de luz. Se a luz está Acesa (V), o <strong><u>NÃO</u></strong> a torna Apagada (F). Se está Apagada (F), o <strong><u>NÃO</u></strong> a torna Acesa (V).</p>
+                  </li>
+                  <br>
+                  <img src="./img/NOT_ilus.png">
+                  <br>
+                  <li class="lista">   
+                    <p><b>Símbolos Comuns:</b> <b>!</b> (em programação), <b>¬</b> (em matemática).</p>
+                  </li>
+                  <br>
+                  <li class="lista">
+                    <p><b>Exemplo:</b></p>
+                    <li class="lista2">
+                      <p>Se a proposição <b>X</b> = "Está chovendo" (V).</p>
+                    </li>
+                    <li class="lista2">
+                      <p>Então, <b>NÃO X</b> = "Não está chovendo" (F).</p>
+                    </li>
+                  </li>
+                  <br>
+                <br>
+                <h2>Operador <b>E</b> (AND): O Exigente</h2>
+                <br>
+                <p>O operador <b>E</b> só retorna Verdadeiro se <b>AMBAS</b>as proposições forem <b>Verdadeiras</b>.Se uma delas (ou as duas) for Falsa, o resultado todo é Falso.</p>
+                <br>
+                <li class="lista">
+                    <p><b>Analogia:</b> Pense em um circuito elétrico em <b>série</b> (um interruptor depois do outro). A lâmpada só acende se o interruptor 1 <strong><u>E</u></strong> o interruptor 2 estiverem ligados (V). Se um deles estiver desligado (F), a lâmpada não acende.</p>
+                  </li>
+                  <br>
+                  <img src="./img/AND_ilus.png">
+                  <br>
+                  <li class="lista">   
+                    <p><b>Símbolos Comuns:</b> <b>&&</b> (em programação), <b>^</b> (em matemática).</p>
+                  </li>
+                  <br>
+                  <li class="lista">
+                    <p><b>Exemplo:</b></p>
+                    <li class="lista2">
+                      <p>"Para passar de ano na escola, você precisa de: <b>Nota boa (V) <u>E</u> Frequência alta (V)</b>"</p>
+                    </li>
+                    <li class="lista2">
+                      <p>Se você tiver só a <b>Nota boa (V)</b> mas sua <b>Frequência for baixa (F)</b>, o resultado é <b>Falso</b> (você não passa de ano)."</p>
+                    </li>
+                  </li>
+                  <br>
+                <br>
+                <h2>Operador <b>OU</b> (OR): O Flexível</h2>
+                <br>
+                <p>O operador <b>OU</b> é mais tranquilo. Ele retorna Verdadeiro se <b>PELO MENOS UMA</b>das condições for Verdadeira. Ele só será Falso se <b>AMBAS</b> condições forem Falsas.</p>
+                <br>
+                <li class="lista">
+                    <p><b>Analogia:</b> Pense em um circuito elétrico em <b>paralelo</b> (um interruptor ao lado do outro). A lâmpada acende se o interruptor 1 <strong><u>OU</u></strong> o interruptor 2 estiver ligado (V). Ela só fica apagada se os dois estiverem desligados (F).</p>
+                  </li>
+                  <br>
+                  <img src="./img/OR_ilus.png">
+                  <br>
+                  <li class="lista">   
+                    <p><b>Símbolos Comuns:</b> <b>||</b> (em programação), <b>v</b> (em matemática).</p>
+                  </li>
+                  <br>
+                  <li class="lista">
+                    <p><b>Exemplo:</b></p>
+                    <li class="lista2">
+                      <p>"Você ganha sobremesa (V) se: <b>comer todo o brócolis (F) <u>OU</u> arrumar seu quarto (V)</b>."</p>
+                    </li>
+                    <li class="lista2">
+                      <p>Você ganha a sobremesa (V), pois pelo menos uma das condições foi <b>Verdadeira</b>.</p>
+                    </li>
+                  </li>
+                  <br>
+                <br>
+            </section>
+
+            <section id="secao-3" class="conteudo-secao">
+                <h1 class="titulo">Tabelas-Verdade (O "Mapa" da Lógica)</h1>
+                <br>
+                <br>
+                <br>
+                <p>Uma Tabela-Verdade é simplesmente um '<b>manual</b>' que mostra TODOS os resultados possíveis para um operador. É a nossa '<b>cola</b>' oficial para saber a resposta certa!</p>
+                <P><b>Aviso Importante:</b> Em computação, é muito comum usar <b>1</b> no lugar de <b>V (Verdadeiro)</b> e <b>0</b> no lugar de <b>F (Falso)</b>. Lembre-se: eles significam exatamente a mesma coisa!</P>
+                <br>
+                <h2>Tabela-Verdade do NÃO (NOT)</h2>
+                <br>
+                <p>Como o <b>NÃO</b> só inverte, a tabela é bem simples:</p>
+                <br>
+                <img src="./img/NOT_ilus_tab.png">
+                <br>
+                <h2>Tabela-Verdade do E (AND)</h2>
+                <br>
+                <p>Note que ela só é Verdadeira na primeira linha, quando <b>X</b> e <b>Y</b> são Verdadeiro:</p>
+                <br>
+                <img src="./img/AND_ilus_tab.png">
+                <br>
+                <h2>Tabela-Verdade do OU (OR)</h2>
+                <br>
+                <p>Note que ela só é Falsa na última linha, quando <b>X</b> e <b>Y</b> são Falsos:</p>
+                <br>
+                <img src="./img/OR_ilus_tab.png">
+                <br>
+            </section>
+            <section id="secao-4" class="conteudo-secao">
+                <h1 class="titulo">Expressões Lógicas (Combinando Tudo)</h1>
+                <br>
+                <br>
+                <br>
+                <p>O verdadeiro poder da lógica aparece quando misturamos os operadores para criar '<b>Expressões Lógicas</b>' e analisar situações mais complexas.</p>
+                <br>
+                <li class="lista">
+                  <p><b>Exemplo de Expressão:</b>(Está chovendo E tenho guarda-chuva) <b>OU</b> (Está sol).</p>
+                </li>
+                <br>
+                <h2>Qual a Ordem Certa? (Precedência)</h2>
+                <br>
+                <p>Assim como na matemática (a multiplicação * vem antes da soma +), na lógica também temos uma ordem. Se não houver parênteses () para mandar, a ordem é:</p>
+                <br>
+                <li class="lista">
+                  <p>NÃO (NOT) - Feito por primeiro.</p>
+                </li>
+                <li class="lista">
+                  <p>E (AND) - Feito por segundo.</p>
+                </li>
+                <li class="lista">
+                  <p>OU (OR) - Feito por último</p>
+                </li>
+                <br>
+                <br>
+                <h2>Exemplo de Tabela-Verdade Mista</h2>
+                <br>
+                <br>
+                <p>Vamos construir a tabela para a expressão X OU (NÃO Y). Primeiro, criamos as colunas X e Y. Depois, criamos a coluna para (NÃO Y), que é o inverso de Y. Por último, fazemos o OU entre a coluna X e a coluna (NÃO Y).</p>
+                <br>
+                <br>
+                <img src="./img/express_ilus_tab.png">
+                <br>
+                <br>
+                <h2>Pronto para o Desafio?</h2>
+                <br>
+                <p>Agora que você entendeu os fundamentos da Lógica Booleana, que tal testar seu conhecimento na aba "Prática"? Preparamos alguns desafios e questões reais de concurso para você ver como isso funciona na prática e testar suas novas habilidades!</p>
+                <br>
+                <br>
+              </section>
+        </main>
+
+  </div>
+
+  <!-- =====FOOTER====== -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-links">
+        <h4>Links úteis</h4>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="teoria.html">Teoria</a></li>
+          <li><a href="pratica.html">Praticar</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h4>Redes sociais</h4>
+        <a href="https://github.com/OMirandinha/LogiQuiz_Fatec" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 LogiQuiz — Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="jsscript.js"></script>
+</body>
+</html>
