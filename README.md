@@ -50,21 +50,21 @@ GitHub Pages (para hospedagem)
 ## 👨‍💻 Equipe de Desenvolvimento
 ### Front-end
 
-Paulo Takeshi
+Paulo Takeshi: Desenvolvimento do designer da página "Prática".
 
-Jeremias Eduardo
+Jeremias Eduardo: Desenvolvimento do designer da página "Teoria".
 
-Thiago Rocha
+Thiago Rocha: Desenvolvimento do designer da página "Início".
 
 ### Back-end
 
-Vitor Hugo
+Vitor Hugo: Desenvolvimento da lógica de funcionamento da página "Prática".
 
-Gabriel da Rosa
+Gabriel da Rosa: Auxiliar no desenvolvimento da lógica de funcionamento da página "Prática".
 
 ### Documentação
 
-Victor Emanuel
+Victor Emanuel: Elaboração da documentação do projeto LogiQuiz.
 
 ## 🎯 Objetivo
 
